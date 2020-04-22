@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <a routerLink="/">{{appName}}</a>
+  <a routerLink="/home">{{appName}}</a>
   <span class="fill-remaining-space"></span>
 
   <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData |async">

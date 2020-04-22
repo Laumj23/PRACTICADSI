@@ -14,6 +14,7 @@ const routes: Routes = [
         m => m.ListPostsModule
       )
     },
+    { path: 'home', loadChildren: () => import('../../components/pages/home/home.module').then(m => m.HomeModule)},
     { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }
   ]
  }];

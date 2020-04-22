@@ -3,6 +3,6 @@ export interface PostI{
   contentPost: string;
   imagePost?: any;
   id?: string;
-  tagPost: string;
+  tagsPost: string;
   fileRef?: string;
 }
