@@ -22,6 +22,7 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { DeleteDialogComponent } from './shared/components/delete-dialog/delete-dialog.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { DeleteDialogComponent } from './shared/components/delete-dialog/delete-
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   entryComponents:[ModalComponent, DeleteDialogComponent],
   providers: [{provide: BUCKET, useValue:'gs://practicafinal-2e9b3.appspot.com'}],
