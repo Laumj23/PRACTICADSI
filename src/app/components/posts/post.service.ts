@@ -41,8 +41,12 @@ public deletePostbyID(post: PostI){
   return this.postCollection.doc(post.id).delete();
 }
 //editar un post
-public editPostbyID(post: PostI){
-  return this.postCollection.doc(post.id).update(post);
+public editPostbyID(post: PostI, newImage?: FileI){
+  if(newImage){
+    this.uploadImage(post, newImage);
+  }else{
+    return this.postCollection.doc(post.id).update(post);
+  }
 }
 //preparar un post que se va a crear o actualizar
 public preAddAndUpdatePost(post: PostI, image: FileI): void{
@@ -58,9 +62,15 @@ private savePost(post: PostI){
     fileRef: this.filePath,
     tagsPost: post.tagsPost
   };
-  this.postCollection.add(postObj);
+  if(post.id){
+    return this.postCollection.doc(post.id).update(postObj);
+  }else{
+    return  this.postCollection.add(postObj);
+  }
+
+
 }
-//subir una imagen al storage de firebase 
+//subir una imagen al storage de firebase
 private uploadImage(post: PostI, image: FileI ){
   this.filePath = `images/${image.name}`;
   const fileRef = this.storage.ref(this.filePath);
