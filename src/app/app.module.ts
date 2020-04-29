@@ -17,7 +17,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment } from '../environments/environment';
-import { ReactiveFormsModule }  from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { DeleteDialogComponent } from './shared/components/delete-dialog/delete-dialog.component';
@@ -50,8 +50,8 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     EditPostModule,
 
   ],
-  entryComponents:[ModalComponent, DeleteDialogComponent],
-  providers: [{provide: BUCKET, useValue:'gs://practicafinal-2e9b3.appspot.com'}],
+  entryComponents: [ModalComponent, DeleteDialogComponent],
+  providers: [{provide: BUCKET, useValue: 'gs://practicafinal-2e9b3.appspot.com'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

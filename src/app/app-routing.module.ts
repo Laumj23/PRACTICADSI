@@ -5,11 +5,12 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
 
 
 const routes: Routes = [
-{ path: '', component:ContainerAppComponent, children:[
+{ path: '', component: ContainerAppComponent, children: [
   { path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) },
   { path: 'post/:id', component: PostComponent},
   { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
-  { path: '', redirectTo:'/login', pathMatch: 'full'}
+  { path: 'citas', loadChildren: () => import('./components/pages/citas/citas.module').then(m => m.CitasModule) },
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
   ]
 },
 { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },

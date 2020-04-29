@@ -1,4 +1,4 @@
-export interface PostI{
+export interface PostI {
   titlePost: string;
   contentPost: string;
   imagePost?: any;
