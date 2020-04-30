@@ -1,12 +1,32 @@
-<div>
+<div class="container" *ngIf="citas$ | async as cita; else loading">
     <h1>Tus citas</h1>
     <h2>Tus próximas citas:</h2>
-    <mat-card>
-
-    </mat-card>
-    <!-- <h2>Buscar servicios:</h2>
-    < -->
-    <div>
-        
-    </div>    
+    <mat-card class="cita-card" *ngFor="let c of cita">
+        <mat-card-header>
+            <mat-card-title>
+                <a [routerLink]="['/cita', c.id]">
+                    {{c.consulta}}
+                </a>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Consulta con la doctora {{c.doctor}}</p>
+            <p>{{c.date | date}}</p>
+            <p>{{c.centro}}</p>
+        </mat-card-content>
+    </mat-card> 
+    <h2>Buscar servicios:</h2>  
+    <div class="cita-button">
+        <button mat-raised-button>Atención primaria</button>
+        <button mat-raised-button>Atención enfermería</button>
+    </div>
+    <div class="cita-button">
+        <button mat-raised-button>Atención especializada</button>
+        <button mat-raised-button>Atención online</button>
+    </div>
 </div>
+<ng-template #loading>
+    <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

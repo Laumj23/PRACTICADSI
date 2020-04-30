@@ -27,7 +27,6 @@ export class PostService {
           const data = a.payload.doc.data() as PostI;
           const id = a.payload.doc.id;
           return {id, ...data};
-
       })
     )
     );
@@ -67,8 +66,6 @@ private savePost(post: PostI) {
   } else {
     return  this.postCollection.add(postObj);
   }
-
-
 }
 // subir una imagen al storage de firebase
 private uploadImage(post: PostI, image: FileI) {

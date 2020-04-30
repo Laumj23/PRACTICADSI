@@ -4,7 +4,6 @@ import { PostService } from '../post.service';
 import { Observable } from 'rxjs';
 import { PostI } from 'src/app/shared/models/post.interface';
 
-
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -18,7 +17,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     const idPost = this.route.snapshot.params.id;
 
-    this.post$=this.postSvc.getOnePost(idPost);
+    this.post$ = this.postSvc.getOnePost(idPost);
   }
 
 }

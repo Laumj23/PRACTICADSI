@@ -4,4 +4,5 @@ export interface CitaI {
     date: Date;
     doctor: string;
     user: string;
+    id?: string;
 }
