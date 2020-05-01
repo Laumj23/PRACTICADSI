@@ -11,13 +11,13 @@ import { FileI } from './../../../shared/models/file.interface';
 export class ProfileComponent implements OnInit {
 
   public image: FileI;
-  public currentImage: string = 'https://picsum.photos/id/113/150/150';
+  public currentImage = 'https://picsum.photos/id/113/150/150';
 
-  constructor(private authSvc:AuthService) { }
+  constructor(private authSvc: AuthService) { }
 
   public profileForm = new FormGroup({
     displayName: new FormControl('', Validators.required),
-    email: new FormControl({value:'', disabled : true}, Validators.required),
+    email: new FormControl({value: '', disabled : true}, Validators.required),
     photoURL: new FormControl('', Validators.required)
   });
 
@@ -27,12 +27,12 @@ export class ProfileComponent implements OnInit {
 
     });
   }
-onSaveUser(user: UserI):void{
+onSaveUser(user: UserI): void {
   this.authSvc.preSaveUserProfile(user, this.image);
 }
 
-private initValuesForm(user: UserI): void{
-  if(user.photoURL){
+private initValuesForm(user: UserI): void {
+  if (user.photoURL) {
     this.currentImage = user.photoURL;
   }
   this.profileForm.patchValue({
@@ -40,8 +40,8 @@ private initValuesForm(user: UserI): void{
     email: user.email
   });
 }
-handleImage(image: FileI):void{
-  this.image=image;
+handleImage(image: FileI): void {
+  this.image = image;
 }
 
 

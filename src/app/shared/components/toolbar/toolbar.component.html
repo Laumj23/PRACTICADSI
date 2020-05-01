@@ -11,6 +11,10 @@
     <button mat-button>About</button>
   </a>
 
+  <a routerLink="/citas" routerLinkActive="active">
+    <button mat-button>Citas</button>
+  </a>
+
 
   <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
     <button mat-button>Logout</button>

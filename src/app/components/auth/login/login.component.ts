@@ -16,16 +16,16 @@ export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-  })
+  });
 
   ngOnInit() {
 
   }
 
-  onLogin(form:UserI){
+  onLogin(form: UserI) {
     this.authSvc.loginByEmail(form)
     .then(res => {
-      console.log('Succesfully',res);
+      console.log('Succesfully', res);
       this.router.navigate(['/home']);
     })
     .catch (err => console.log('Error', err));
