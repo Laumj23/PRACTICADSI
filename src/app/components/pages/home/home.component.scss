@@ -1,3 +1,15 @@
+h1{
+  color: white;
+  margin-top: 5px;
+  margin: 10px;
+  display: block;
+}
+h2{
+  color: white;
+  margin-top: 5px;
+  margin: 10px;
+  display: block;
+}
 .container{
   margin-top:25px;
   display: grid;
@@ -9,8 +21,9 @@
 
 a{
   cursor: pointer;
-  color: grey;
+  color: #A7004F;
   text-decoration: none;
+
 }
 .container >*:not(:last-child){
   margin-bottom: 32px;
@@ -22,22 +35,26 @@ a{
 .post-card{
   background: #white;
   opacity: 70%;
-  color: grey;
+  color: #A7004F;
   border-radius: 5px;
   padding: 20px;
   font-size: 150%;
   flex: 0 1 calc(24% - 32px );
   margin: 10px;
   }
-  img{
-    height: 200px;
-  }
   p.content{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
   }
+  mat-card-content{
+    margin-top: 10px;
+  }
+}
+mat-progress-bar{
+  border-radius: 5px;
+  height: 10px;
+
 }
 /*responsive*/
 /*medium*/

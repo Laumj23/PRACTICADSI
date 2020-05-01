@@ -10,15 +10,12 @@ import { FileI } from './../../../shared/models/file.interface';
 })
 export class ProfileComponent implements OnInit {
 
-  public image: FileI;
-  public currentImage = 'https://picsum.photos/id/113/150/150';
 
   constructor(private authSvc: AuthService) { }
 
   public profileForm = new FormGroup({
     displayName: new FormControl('', Validators.required),
-    email: new FormControl({value: '', disabled : true}, Validators.required),
-    photoURL: new FormControl('', Validators.required)
+    email: new FormControl({value: '', disabled : true}, Validators.required)
   });
 
   ngOnInit() {
@@ -28,20 +25,14 @@ export class ProfileComponent implements OnInit {
     });
   }
 onSaveUser(user: UserI): void {
-  this.authSvc.preSaveUserProfile(user, this.image);
+  this.authSvc.preSaveUserProfile(user);
 }
 
 private initValuesForm(user: UserI): void {
-  if (user.photoURL) {
-    this.currentImage = user.photoURL;
-  }
   this.profileForm.patchValue({
     displayName: user.displayName,
     email: user.email
   });
-}
-handleImage(image: FileI): void {
-  this.image = image;
 }
 
 
