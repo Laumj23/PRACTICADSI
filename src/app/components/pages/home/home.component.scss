@@ -9,7 +9,7 @@
 
 a{
   cursor: pointer;
-  color: #fff;
+  color: grey;
   text-decoration: none;
 }
 .container >*:not(:last-child){
@@ -20,8 +20,9 @@ a{
 }
 
 .post-card{
-  background: #444;
-  color: #fff;
+  background: #white;
+  opacity: 70%;
+  color: grey;
   border-radius: 5px;
   padding: 20px;
   font-size: 150%;
