@@ -1,11 +1,13 @@
+
 .navbar{
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: #D90066;
+  height: 60px;
+
   mat-icon{
     cursor: pointer;
   }
 }
+
 mat-sidenav{
   width: 200px;
   cursor:pointer;
@@ -19,4 +21,19 @@ a{
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media screen and (max-width: 959px){
+.navbar{
+          opacity: 90%;
+          border-right: 1px solid #e5e5e5;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          height: 50px;
+          width: 100%;
+          z-index: 1;
+          display: inline-block;
+
+ }
 }

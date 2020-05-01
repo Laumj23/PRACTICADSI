@@ -10,8 +10,6 @@ import { PostService } from './../post.service';
   styleUrls: ['./edit-post.component.scss']
 })
 export class EditPostComponent implements OnInit {
-  private image: any;
-  private imageOriginal: any;
 
   @Input() post: PostI;
 
@@ -21,37 +19,23 @@ export class EditPostComponent implements OnInit {
     id:new FormControl('', Validators.required),
     titlePost:new FormControl('', Validators.required),
     contentPost:new FormControl('', Validators.required),
-    tagsPost:new FormControl('', Validators.required),
-    imagePost:new FormControl('', Validators.required),
+
   });
 
   ngOnInit() {
-    this.image = this.post.imagePost;
-    this.imageOriginal = this.post.imagePost;
     this.initValuesForm();
   }
 
   editPost(post: PostI){
-    console.log('Img', this.image);
-    console.log('original', this.imageOriginal);
-    if(this.image == this.imageOriginal){
-      post.imagePost = this.imageOriginal;
       this.postSvc.editPostbyID(post);
-    }
-    else{
-      this.postSvc.editPostbyID(post, this.image);
-    }
+
   }
 
-  handleImage(event:any):void{
-    this.image = event.target.files[0];
-  }
   private initValuesForm():void{
     this.editPostForm.patchValue({
       id: this.post.id,
       titlePost: this.post.titlePost,
-      contentPost: this.post.contentPost,
-      tagsPost: this.post.tagsPost
+      contentPost: this.post.contentPost
 
     })
   }

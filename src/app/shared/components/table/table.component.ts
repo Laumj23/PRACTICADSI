@@ -53,7 +53,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(DeleteDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result ${ result }`);
-      if(result.value){
+      if(result == true){
         this.postSvc.deletePostbyID(post);
       }
     })

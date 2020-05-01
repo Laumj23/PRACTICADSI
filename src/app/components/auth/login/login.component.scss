@@ -2,6 +2,7 @@ h2{
   padding: inherit;
   text-align: center;
   display: block;
+  color: white;
 }
 :host{
   display: block;
@@ -21,4 +22,5 @@ mat-card-content{
 }
 button{
   width: 100%;
+  background-color:  #D90066;
 }
