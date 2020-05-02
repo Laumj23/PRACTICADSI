@@ -1,31 +1,22 @@
 <mat-toolbar>
   <a routerLink="/home" routerLinkActive="active">
-    <span class="material-icons">face </span>
+    <span class="material-icons">face</span>
   </a>
 
   <a routerLink="/citas" routerLinkActive="active">
     <span class="material-icons">date_range</span>
   </a>
 
-  <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ |async">
-    <button mat-button>Admin</button>
+  <a routerLink="/about" routerLinkActive="active">
+    <span class="material-icons">markunread_mailbox</span>
   </a>
-
 
   <a routerLink="/about" routerLinkActive="active">
-    <button mat-button>About</button>
+    <span class="material-icons">wb_sunny</span>
   </a>
 
-
-
-
-  <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
-    <button mat-button>Logout</button>
+  <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ |async">
+    <span class="material-icons">settings</span>
   </a>
 
-<ng-template #showLogin>
-  <a routerLink="/login" routerLinkActive="active">
-    <button mat-button>Login</button>
-  </a>
-</ng-template>
 </mat-toolbar>

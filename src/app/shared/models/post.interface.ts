@@ -3,4 +3,6 @@ export interface PostI {
   contentPost: string;
   id?: string;
   data?: number;
+  user?: string;
+
 }

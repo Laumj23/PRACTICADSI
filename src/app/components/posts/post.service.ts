@@ -49,13 +49,15 @@ public savePost(post: PostI) {
   const postObj = {
     titlePost: post.titlePost,
     contentPost: post.contentPost,
-    data: post.data
+    data: post.data,
+    user: post.user
   };
-  if (post.id) {
-    return this.postCollection.doc(post.id).update(postObj);
-  } else {
-    return  this.postCollection.add(postObj);
+  if(post.id){
+    return  this.postCollection.doc(post.id).update(postObj);
+  }else{
+    this.postCollection.add(postObj);
   }
+
 }
 
 }
