@@ -19,8 +19,7 @@ public posts$: Observable<PostI[]>;
   constructor(private postSvc: PostService, public authSvc: AuthService) { }
 
   ngOnInit() {
-    this.posts$=this.postSvc.getAllPosts();
-
+    this.posts$ = this.postSvc.getAllPosts();
   }
 
 }

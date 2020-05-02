@@ -1,17 +1,18 @@
 @media screen and (max-width: 959px){
-.menu{
-          opacity: 90%;
-          border-right: 1px solid #e5e5e5;
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          height: 5em;
-          width: 100%;
-          z-index: 1;
-          display: inline-block;
+    .menu {
+        opacity: 90%;
+        border-right: 1px solid #e5e5e5;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        display: inline-block;
+    }
+}
+@media screen and (min-width: 959px){
+    .menu {
+        
+    }
+}
 
- }
-}
-.menu{
-  
-}

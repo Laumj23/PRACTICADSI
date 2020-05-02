@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map, finalize } from 'rxjs/Operators';
+import { map } from 'rxjs/Operators';
 import { CitaI } from '../../shared/models/cita.interface';
-import { FileI } from '../../shared/models/file.interface';
+import { UserI } from '../../shared/models/user.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
@@ -11,11 +11,11 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class CitaService {
   private citaCollection: AngularFirestoreCollection<CitaI>;
-  private filePath: any;
-  private downloadURL: Observable<string>;
+  private userCollection: AngularFirestoreCollection<UserI>;
 
   constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {
     this.citaCollection = afs.collection<CitaI>('citas');
+    this.userCollection = afs.collection<UserI>('users');
   }
 
   public getAllCitas(): Observable<CitaI[]> {
@@ -32,11 +32,12 @@ export class CitaService {
     );
   }
   // Obtener una cita
-  public getOneCita(id: CitaI): Observable<CitaI> {
+  public getOneCita(id: CitaI, uid: UserI): Observable<CitaI> {
     return this.afs.doc<CitaI>(`citas/${id}`).valueChanges();
   }
-  // Borrar una cita
-  public deleteCitabyID(cita: CitaI) {
-    return this.citaCollection.doc(cita.id).delete();
+
+  public getCitasByUser(uid: UserI): Observable<CitaI[]> {
+    return this.afs.collection<CitaI>
+      ('citas', ref => ref.where('user', '==', uid)).valueChanges();
   }
 }

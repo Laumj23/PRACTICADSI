@@ -9,7 +9,7 @@
   
   a{
     cursor: pointer;
-    color: #fff;
+    color: #A7004F;
     text-decoration: none;
   }
   .container >*:not(:last-child){
@@ -20,8 +20,9 @@
   }
   
   .cita-card{
-    background: #444;
-    color: #fff;
+    background: #ffffff;
+    opacity: 70%;
+    color: #A7004F;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
@@ -37,8 +38,11 @@
       text-overflow: ellipsis;
     }
     h1, h2 {
+      color: white;
+      margin-top: 5px;
+      margin: 10px;
+      display: block;
       width: 100%;
-      margin-left: 10px;
     }
     .cita-button{
       width: 100%;

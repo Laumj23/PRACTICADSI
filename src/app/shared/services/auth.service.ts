@@ -11,16 +11,17 @@ import { finalize } from 'rxjs/Operators';
 })
 export class AuthService {
   public userData$: Observable<firebase.User>;
+  public uid: string;
   private filePath: string;
 
 
   constructor(private afAuth: AngularFireAuth, private storage: AngularFireStorage) {
     this.userData$ = afAuth.authState;
-   }
-
+  }
 
   loginByEmail(user: UserI) {
-    const { email, password} = user;
+    const { email, password } = user;
+    this.uid = user.uid;
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
@@ -29,11 +30,11 @@ export class AuthService {
   }
 
   preSaveUserProfile(user: UserI): void {
-       this.saveUserProfile(user);
+    this.saveUserProfile(user);
   }
 
  async saveUserProfile(user: UserI) {
-     (await this.afAuth.currentUser).updateProfile({
+    (await this.afAuth.currentUser).updateProfile({
       displayName: user.displayName
     }).
     then( () => console.log('User update'))
