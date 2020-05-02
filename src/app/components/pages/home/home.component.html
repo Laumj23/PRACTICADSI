@@ -1,12 +1,18 @@
 <h2>Hola {{userName}}</h2>
 <h2>Tu resumen diario</h2>
 <div class="container" *ngIf="posts$ | async as posts; else loading">
+
  <mat-card class="post-card" *ngFor="let post of posts">
     <mat-card-header>
      <mat-card-title>
        <a [routerLink]="['/post', post.id]">
          {{post.titlePost}}
        </a>
+
+       <button mat-stroked-button color="accent" (click)="onEditPost(element)">
+         <mat-icon>edit</mat-icon>
+       </button>
+
      </mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
@@ -14,12 +20,21 @@
       <p>
         {{post.contentPost}}
       </p>
-      <mat-progress-bar  [value]="[post.data]/10" ></mat-progress-bar>
+      <div class="personalData" *ngIf="post.user==userName; else empty">
+        <mat-progress-bar [value]="[post.data]/10" ></mat-progress-bar>
+       <p class="datos">{{post.data}}</p>
+      </div>
     </mat-card-content>
   </mat-card>
+
 </div>
 <ng-template #loading>
   <div class="container-spinner">
   <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+<ng-template #empty>
+  <div class="nothing">
+    <p>Introduce tus datos</p>
   </div>
 </ng-template>

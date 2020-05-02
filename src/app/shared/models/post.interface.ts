@@ -3,6 +3,6 @@ export interface PostI {
   contentPost: string;
   id?: string;
   data?: number;
-  owner?: string;
+  user?: string;
 
 }
