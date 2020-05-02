@@ -13,13 +13,15 @@ import { UserI } from '../../../shared/models/user.interface';
 export class HomeComponent implements OnInit {
 
 public posts$: Observable<PostI[]>;
-
+public userName: string;
 
 
   constructor(private postSvc: PostService, public authSvc: AuthService) { }
 
   ngOnInit() {
     this.posts$=this.postSvc.getAllPosts();
+    this.authSvc.userData$.subscribe(user => 
+      this.userName=user.displayName);
 
   }
 

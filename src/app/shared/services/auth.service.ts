@@ -16,6 +16,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth, private storage: AngularFireStorage) {
     this.userData$ = afAuth.authState;
+
    }
 
 
@@ -39,6 +40,7 @@ export class AuthService {
     then( () => console.log('User update'))
     .catch(err => console.log('Error', err));
   }
+
 
 
 

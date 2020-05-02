@@ -1,7 +1,10 @@
 .material-icons{
   color: white;
-  margin: 10px;
-  display: flex;
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+  margin: 20px;
+
 }
 mat-toolbar{
     background-color: #D90066;
