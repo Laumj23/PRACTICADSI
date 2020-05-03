@@ -59,5 +59,20 @@ public savePost(post: PostI) {
   }
 
 }
+//posts filtrados
+public getPostsFiltered(userName: string): Observable<PostI[]> {
+  console.log('filtered ' + userName);
+  return this.afs.collection<PostI>('posts', ref => ref.where('user', '==', userName))
+    .snapshotChanges()
+    .pipe(
+      map(actions =>
+        actions.map(a => {
+          const data = a.payload.doc.data() as PostI;
+          const id = a.payload.doc.id;
+          return {id, ...data};
+    })
+  )
+  );
+}
 
 }

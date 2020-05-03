@@ -21,10 +21,9 @@ public userName: string;
   constructor(private postSvc: PostService, public authSvc: AuthService) { }
 
   ngOnInit() {
-    this.posts$ = this.postSvc.getAllPosts();
-    this.authSvc.userData$.subscribe(user =>
-      this.userName = user.displayName);
-
+    this.userName=this.authSvc.getUserName();
+    console.log('user '+this.userName);
+    this.posts$ = this.postSvc.getPostsFiltered(this.userName);
   }
 
 }
