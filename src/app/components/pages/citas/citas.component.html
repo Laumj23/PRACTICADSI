@@ -11,8 +11,7 @@
                 </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <!-- <p>Consulta con la doctora {{c.doctor.nombreDoctor}}</p> -->
-                <!-- <p>{{c.date.toLocaleDateString("en-US") | date}}</p> -->
+                <p>Consulta con la doctora {{c.doctor}} el {{c.date}}</p>
                 <p>{{c.centro}}</p>
             </mat-card-content>
         </mat-card> 
@@ -20,12 +19,14 @@
     
     <h2>Buscar servicios:</h2>  
     <div class="cita-button">
-        <button mat-raised-button>Atención primaria</button>
-        <button mat-raised-button>Atención enfermería</button>
+        <button mat-flat-button>Atención primaria
+            <mat-icon>house</mat-icon>
+        </button>
+        <button mat-flat-button>Atención enfermería</button>
     </div>
     <div class="cita-button">
-        <button mat-raised-button>Atención especializada</button>
-        <button mat-raised-button>Atención online</button>
+        <button mat-flat-button>Atención especializada</button>
+        <button mat-flat-button>Atención online</button>
     </div>
 </div>
 <ng-template #loading>

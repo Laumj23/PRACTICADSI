@@ -3,7 +3,6 @@ import { CitaService } from '../../cita/cita.service';
 import { AuthService } from '../../../shared/services/auth.service';
 import { CitaI } from '../../../shared/models/cita.interface';
 import { Observable } from 'rxjs';
-import { UserI } from 'src/app/shared/models/user.interface';
 
 @Component({
   selector: 'app-citas',

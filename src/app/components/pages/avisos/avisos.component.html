@@ -1,0 +1,30 @@
+<div class="container" *ngIf="avisos$ | async as avisos; else loading">
+    <h1>Tus avisos</h1>
+    <h2>Tienes un nuevo resultado:</h2>
+
+    <ng-container *ngIf="avisos.length>0; else empty">
+        <mat-card class="cita-card" *ngFor="let aviso of avisos">
+            <mat-card-header>
+                <a [routerLink]="['/aviso', aviso.id]">
+                    {{aviso.prueba}}</a>
+            </mat-card-header>
+        </mat-card>
+    </ng-container>
+
+    <h2>Pruebas anteriores:</h2>
+    <mat-list class="aviso-list">
+        <mat-list-item *ngFor="let aviso of avisos">
+            <div>{{aviso.prueba}}</div>
+            <div>{{aviso.date}}</div>
+        </mat-list-item>
+    </mat-list>
+</div>
+
+<ng-template #loading>
+    <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+<ng-template #empty>
+    <p>NA DE NA</p>
+</ng-template>

@@ -38,10 +38,7 @@
   }
   h1, h2 {
     color: white;
-    margin-top: 5px;
     margin: 10px;
-    display: block;
-    flex: 1;
   }
   .cita-button{
     margin: 10px auto;
@@ -66,7 +63,7 @@
   .container >*:not(:last-child){
     margin-right: 32px;
   }
-  .cita-card{
+  .post-card{
     flex: 0 1 calc(50% - 32px);
   }
 }

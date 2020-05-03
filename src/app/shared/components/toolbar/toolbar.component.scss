@@ -6,6 +6,16 @@
   margin: 20px;
 }
 mat-toolbar{
-    background-color: #D90066;
-    height: 3em;
+  background-color: #D90066;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+@media screen and (max-width: 959px){
+  mat-toolbar{
+      background-color: #D90066;
+      height: 3em;
+  }
 }
