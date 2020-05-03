@@ -16,7 +16,6 @@ export class CitaComponent implements OnInit {
 
   ngOnInit() {
     const idCita = this.route.snapshot.params.id;
-
     this.cita$ = this.citaSvc.getOneCita(idCita);
   }
 

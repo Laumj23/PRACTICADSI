@@ -13,14 +13,15 @@ import { UserI } from 'src/app/shared/models/user.interface';
 export class CitasComponent implements OnInit {
 
   public citas$: Observable<CitaI[]>;
-  public user: string;
+  public userID: string;
 
-  constructor(private citaSvc: CitaService, private authSvc: AuthService) { 
-    this.user = AuthService.uid;
-  }
+  constructor(private citaSvc: CitaService, private authSvc: AuthService) { }
 
   ngOnInit() {
-    this.citas$ = this.citaSvc.getAllCitas();
+    // this.authSvc.userData$.subscribe(user =>
+    //   this.userID = user.displayName);
+    this.userID = this.authSvc.getUserID();
+    this.citas$ = this.citaSvc.getCitasFiltered(this.userID);
   }
 
 }

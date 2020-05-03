@@ -52,9 +52,9 @@ public savePost(post: PostI) {
     data: post.data,
     user: post.user
   };
-  if(post.id){
+  if (post.id) {
     return  this.postCollection.doc(post.id).update(postObj);
-  }else{
+  } else {
     this.postCollection.add(postObj);
   }
 

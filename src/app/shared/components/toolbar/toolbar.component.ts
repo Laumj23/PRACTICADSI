@@ -12,7 +12,7 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
   }
-  onLogout(): void{
+  onLogout(): void {
     this.authSvc.logout();
   }
 }

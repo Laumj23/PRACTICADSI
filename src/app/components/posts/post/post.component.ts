@@ -12,7 +12,6 @@ import { AuthService } from '../../../shared/services/auth.service';
 })
 export class PostComponent implements OnInit {
     public post$: Observable<PostI>;
-  
 
     constructor(private route: ActivatedRoute, private postSvc: PostService,public authSvc: AuthService) { }
 

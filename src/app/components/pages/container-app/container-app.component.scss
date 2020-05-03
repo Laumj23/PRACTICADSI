@@ -1,4 +1,8 @@
 @media screen and (max-width: 959px){
+    .container {
+        overflow: auto;
+        flex: 1 1 auto;
+    }
     .menu {
         opacity: 90%;
         border-right: 1px solid #e5e5e5;
@@ -8,6 +12,7 @@
         width: 100%;
         z-index: 1;
         display: inline-block;
+        flex: 0 0 auto;
     }
 }
 @media screen and (min-width: 959px){

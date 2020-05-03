@@ -4,5 +4,4 @@ export interface PostI {
   id?: string;
   data?: number;
   user?: string;
-
 }

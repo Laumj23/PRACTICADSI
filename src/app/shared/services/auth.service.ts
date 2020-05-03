@@ -11,7 +11,7 @@ import { finalize } from 'rxjs/Operators';
 })
 export class AuthService {
   public userData$: Observable<firebase.User>;
-  public uid: string;
+  private uid: string;
   private filePath: string;
 
 
@@ -23,7 +23,6 @@ export class AuthService {
 
   loginByEmail(user: UserI) {
     const { email, password } = user;
-    this.uid = user.uid;
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
@@ -41,6 +40,17 @@ export class AuthService {
     }).
     then( () => console.log('User update'))
     .catch(err => console.log('Error', err));
+  }
+
+  public getUserID(): string {
+    this.afAuth.onAuthStateChanged((user) => {
+      if (user) {
+        this.uid = user.uid;
+      } else {
+        // User not logged in or has just logged out.
+      }
+    });
+    return this.uid;
   }
 
 

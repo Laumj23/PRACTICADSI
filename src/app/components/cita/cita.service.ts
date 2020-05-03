@@ -32,12 +32,22 @@ export class CitaService {
     );
   }
   // Obtener una cita
-  public getOneCita(id: CitaI, uid: UserI): Observable<CitaI> {
+  public getOneCita(id: CitaI): Observable<CitaI> {
     return this.afs.doc<CitaI>(`citas/${id}`).valueChanges();
   }
 
-  public getCitasByUser(uid: UserI): Observable<CitaI[]> {
-    return this.afs.collection<CitaI>
-      ('citas', ref => ref.where('user', '==', uid)).valueChanges();
+  public getCitasFiltered(uid: string): Observable<CitaI[]> {
+    console.log('filtered ' + uid);
+    return this.afs.collection<CitaI>('citas', ref => ref.where('user', '==', uid))
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(a => {
+            const data = a.payload.doc.data() as CitaI;
+            const id = a.payload.doc.id;
+            return {id, ...data};
+      })
+    )
+    );
   }
 }
