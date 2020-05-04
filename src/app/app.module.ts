@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +52,7 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
   ],
   entryComponents: [ModalComponent, DeleteDialogComponent],
   providers: [{provide: BUCKET, useValue: 'gs://practicafinal-2e9b3.appspot.com'}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

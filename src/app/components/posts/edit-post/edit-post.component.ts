@@ -17,8 +17,9 @@ export class EditPostComponent implements OnInit {
 
   public editPostForm = new FormGroup({
     id:new FormControl('', Validators.required),
-    titlePost:new FormControl('', Validators.required),
-    contentPost:new FormControl('', Validators.required),
+    titlePost:new FormControl({value: '', disabled : true}, Validators.required),
+    data:new FormControl('', Validators.required),
+    user:new FormControl('', Validators.required)
 
   });
 
@@ -27,7 +28,7 @@ export class EditPostComponent implements OnInit {
   }
 
   editPost(post: PostI){
-      this.postSvc.editPostbyID(post);
+      this.postSvc.savePost(post);
 
   }
 
@@ -35,7 +36,7 @@ export class EditPostComponent implements OnInit {
     this.editPostForm.patchValue({
       id: this.post.id,
       titlePost: this.post.titlePost,
-      contentPost: this.post.contentPost
+      data: this.post.data
 
     })
   }

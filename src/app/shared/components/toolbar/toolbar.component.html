@@ -11,11 +11,11 @@
     <span class="material-icons">markunread_mailbox</span>
   </a>
 
-  <a routerLink="/about" routerLinkActive="active">
+  <a routerLink="/admin/posts" routerLinkActive="active">
     <span class="material-icons">wb_sunny</span>
   </a>
 
-  <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ |async">
+  <a routerLink="/admin/profile" routerLinkActive="active" *ngIf="authSvc.userData$ |async">
     <span class="material-icons">settings</span>
   </a>
 

@@ -1,1 +1,17 @@
-<app-table></app-table>
+<h2>Tu actividad</h2>
+<div class="container" *ngIf="posts$ | async as posts; else loading">
+ <mat-card class="post-card" *ngFor="let post of posts">
+    <mat-card-header>
+     <mat-card-title>
+         <h3>{{post.dataPost}}</h3>
+     </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      {{post.titlePost}}
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="tabla">
+  <app-table></app-table>
+</div>

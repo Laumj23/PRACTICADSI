@@ -14,6 +14,7 @@ export class PostService {
   private filePath: any;
   private downloadURL: Observable<string>;
 
+
   constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {
     this.postCollection = afs.collection<PostI>('posts');
   }
@@ -48,9 +49,9 @@ public editPostbyID(post: PostI) {
 public savePost(post: PostI) {
   const postObj = {
     titlePost: post.titlePost,
-    contentPost: post.contentPost,
     data: post.data,
-    user: post.user
+    user: post.user,
+    contentPost:post.contentPost
   };
   if (post.id) {
     return  this.postCollection.doc(post.id).update(postObj);
@@ -74,5 +75,19 @@ public getPostsFiltered(userName: string): Observable<PostI[]> {
   )
   );
 }
+
+public getPostsModel(): Observable<PostI[]> {
+  console.log('filtered ');
+  return this.afs.collection<PostI>('posts', ref => ref.where('user', '==', 'none'))
+    .snapshotChanges()
+    .pipe(
+      map(actions =>
+        actions.map(a => {
+          const data = a.payload.doc.data() as PostI;
+          const id = a.payload.doc.id;
+          return {id, ...data};
+    })
+  )
+  );}
 
 }
