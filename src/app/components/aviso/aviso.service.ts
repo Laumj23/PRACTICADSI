@@ -13,8 +13,7 @@ export class AvisoService {
   constructor(private afs: AngularFirestore, private storage: AngularFireStorage) { }
 
   public getAvisosByUser(uid: string) {
-    console.log('filtered ' + uid);
-    return this.afs.collection<AvisoI>('avisos', ref => ref.where('user', '==', uid))
+    return this.afs.collection<AvisoI>('avisos', ref => ref.where('user', '==', uid).orderBy('date', 'desc'))
       .snapshotChanges()
       .pipe(
         map(actions =>

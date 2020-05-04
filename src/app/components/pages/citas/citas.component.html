@@ -4,14 +4,11 @@
     <ng-container *ngIf="cita.length>0; else empty">
         <mat-card class="cita-card" *ngFor="let c of cita">
             <mat-card-header>
-                <mat-card-title>
-                    <a [routerLink]="['/cita', c.id]">
-                        {{c.consulta}}
-                    </a>
-                </mat-card-title>
+                <mat-card-title>{{c.consulta}}</mat-card-title>
+                <mat-card-subtitle>{{c.date.toDate() | date}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <p>Consulta con la doctora {{c.doctor}} el {{c.date}}</p>
+                <p>Consulta con la doctora {{c.doctor}}</p>
                 <p>{{c.centro}}</p>
             </mat-card-content>
         </mat-card> 

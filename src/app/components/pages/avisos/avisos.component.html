@@ -3,19 +3,43 @@
     <h2>Tienes un nuevo resultado:</h2>
 
     <ng-container *ngIf="avisos.length>0; else empty">
-        <mat-card class="cita-card" *ngFor="let aviso of avisos">
+        <mat-card class="aviso-card">
             <mat-card-header>
-                <a [routerLink]="['/aviso', aviso.id]">
-                    {{aviso.prueba}}</a>
+                <mat-card-title>{{avisos[0].prueba}}</mat-card-title>
+                <mat-card-subtitle>{{avisos[0].date.toDate() | date}}</mat-card-subtitle>
             </mat-card-header>
         </mat-card>
     </ng-container>
 
     <h2>Pruebas anteriores:</h2>
     <mat-list class="aviso-list">
-        <mat-list-item *ngFor="let aviso of avisos">
-            <div>{{aviso.prueba}}</div>
-            <div>{{aviso.date}}</div>
+        <mat-list-item *ngIf="avisos[1]!=undefined">
+            <mat-icon mat-list-icon>drafts</mat-icon>
+            <div mat-line>{{avisos[1].prueba}}</div>
+            <div mat-line>{{avisos[1].date.toDate() | date}}</div>
+        </mat-list-item>
+        <mat-divider *ngIf="avisos[1]!=undefined"></mat-divider>
+        <mat-list-item *ngIf="avisos[2]!=undefined">
+            <mat-icon mat-list-icon>drafts</mat-icon>
+            <div mat-line>{{avisos[2].prueba}}</div>
+            <div mat-line>{{avisos[2].date.toDate() | date}}</div>
+        </mat-list-item>
+        <mat-divider *ngIf="avisos[2]!=undefined"></mat-divider>
+        <mat-list-item *ngIf="avisos[3]!=undefined">
+            <mat-icon mat-list-icon>drafts</mat-icon>
+            <div mat-line>{{avisos[3].prueba}}</div>
+            <div mat-line>{{avisos[3].date.toDate() | date}}</div>
+        </mat-list-item>
+        <mat-divider *ngIf="avisos[3]!=undefined"></mat-divider>
+        <mat-list-item *ngIf="avisos[4]!=undefined">
+            <mat-icon mat-list-icon>drafts</mat-icon>
+            <div mat-line>{{avisos[4].prueba}}</div>
+            <div mat-line>{{avisos[4].date.toDate() | date}}</div>
+        </mat-list-item>
+        <mat-divider *ngIf="avisos[4]!=undefined"></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon></mat-icon>
+            <div mat-line>Otros</div>
         </mat-list-item>
     </mat-list>
 </div>
