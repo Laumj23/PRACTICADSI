@@ -10,12 +10,13 @@ const routes: Routes = [
   { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
   { path: 'citas', loadChildren: () => import('./components/pages/citas/citas.module').then(m => m.CitasModule) },
   { path: 'avisos', loadChildren: () => import('./components/pages/avisos/avisos.module').then(m => m.AvisosModule) },
+  { path: 'actividad', loadChildren: () => import('./components/pages/actividad/actividad.module').then(m => m.ActividadModule) },
   { path: '', redirectTo: '/login', pathMatch: 'full'}
   ]
 },
 { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },
-{ path: 'login', loadChildren: () => import('./components/auth/login/login.module').then(m => m.LoginModule) }];
-
+{ path: 'login', loadChildren: () => import('./components/auth/login/login.module').then(m => m.LoginModule) }
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
