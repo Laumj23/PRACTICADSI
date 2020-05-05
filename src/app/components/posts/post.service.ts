@@ -46,18 +46,17 @@ public editPostbyID(post: PostI) {
 }
 
 // guardar un post
-public savePost(post: PostI) {
+public savePost(post1: PostI, post2?: PostI) {
   const postObj = {
-    titlePost: post.titlePost,
-    data: post.data,
-    user: post.user,
-    contentPost:post.contentPost
+    titlePost: post1.titlePost,
+    data: post1.data,
+    user: post1.user,
+    contentPost:post1.contentPost,
+    id: post1.id
   };
-  if (post.id) {
-    return  this.postCollection.doc(post.id).update(postObj);
-  } else {
-    this.postCollection.add(postObj);
-  }
+  this.postCollection.doc(post2.id).update(post2);
+  this.postCollection.add(postObj);
+
 
 }
 //posts filtrados
