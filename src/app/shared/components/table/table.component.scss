@@ -4,6 +4,7 @@
 table {
   width: 100%;
   border-radius: 5px;
+  opacity: 80%;
 }
 
 .mat-form-field {
@@ -17,4 +18,9 @@ table {
   margin: 0 auto;
   display: block;
   margin-top: 1 rem;
+}
+.mat-stroked-button{
+  border: 0px;
+  float:right;
+
 }

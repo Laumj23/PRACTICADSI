@@ -1,9 +1,16 @@
 .material-icons{
-  color: white;
+  color:#DE74A6;
+  opacity: 90%;
   align-items: center;
   display: inline-flex;
   position: relative;
   margin: 20px;
+
+}
+.active {
+  .material-icons{
+  color: white;
+  }
 }
 mat-toolbar{
   background-color: #D90066;
