@@ -1,10 +1,24 @@
 <div class="wrapper">
-  <div class="menu">
-    <app-toolbar></app-toolbar>
-  </div>
-  <div class="container">
+  <div class="display" *ngIf="screenWidth<959; else vertical">
+    <div class="menu">
+      <app-toolbar></app-toolbar>
+    </div>
+  <div class="container-responsive">
     <router-outlet></router-outlet>
+  </div>
   </div>
   <div class="footer">
   </div>
 </div>
+<ng-template #vertical>
+<div class="verticalMenu">
+  <a routerLink="/home"  routerLinkActive="active">Resumen</a>
+  <a routerLink="/citas" routerLinkActive="active">Citas</a>
+  <a routerLink="/avisos" routerLinkActive="active" >Avisos</a>
+  <a routerLink="/actividad" routerLinkActive="active" >Actividad</a>
+  <a routerLink="/about"routerLinkActive="active" >Configuración</a>
+</div>
+<div class="contenido">
+  <router-outlet></router-outlet>
+</div>
+</ng-template>

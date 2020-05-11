@@ -1,7 +1,8 @@
 <div class="container" *ngIf="citas$ | async as cita; else loading">
     <h1>Tus citas</h1>
-    <h2>Tus próximas citas:</h2>
+
     <ng-container *ngIf="cita.length>0; else empty">
+      <h2>Tus próximas citas:</h2>
         <mat-card class="cita-card" *ngFor="let c of cita">
             <mat-card-header>
                 <mat-card-title>{{c.consulta}}</mat-card-title>
@@ -13,8 +14,8 @@
             </mat-card-content>
         </mat-card>
     </ng-container>
-    
-    <h2>Buscar servicios:</h2>  
+
+    <h2>Buscar servicios:</h2>
     <div class="div-button">
         <div class="cita-button" >
             <button mat-flat-button>Atención primaria
@@ -34,5 +35,9 @@
     </div>
 </ng-template>
 <ng-template #empty>
-    <p>NA DE NA</p>
+  <mat-card class="empty">
+      <mat-card-content>
+          <p>No hay citas programadas</p>
+      </mat-card-content>
+  </mat-card>
 </ng-template>

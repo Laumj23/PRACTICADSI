@@ -1,8 +1,9 @@
 <div class="container" *ngIf="avisos$ | async as avisos; else loading">
     <h1>Tus avisos</h1>
-    <h2>Tienes un nuevo resultado:</h2>
+
 
     <ng-container *ngIf="avisos.length>0; else empty">
+      <h2>Tienes un nuevo resultado:</h2>
         <mat-card class="aviso-card">
             <mat-card-header>
                 <mat-icon mat-card-avatar>how_to_reg</mat-icon>
@@ -57,5 +58,9 @@
     </div>
 </ng-template>
 <ng-template #empty>
-    <p>NA DE NA</p>
+  <mat-card class="empty">
+      <mat-card-content>
+          <p>No hay nuevos avisos</p>
+      </mat-card-content>
+  </mat-card>
 </ng-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-container-app',
@@ -6,12 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./container-app.component.scss']
 })
 export class ContainerAppComponent implements OnInit {
+      screenWidth: number;
 
-constructor() {
-
-}
-
-  ngOnInit() {
-  }
+      constructor() {
+          this.getScreenSize();
+      }
+      ngOnInit() {}
+      @HostListener('window:resize', ['$event'])
+      getScreenSize(event?) {
+            this.screenWidth = window.innerWidth;
+      }
 
 }

@@ -1,5 +1,4 @@
-@media screen and (max-width: 959px){
-    .menu {
+.menu {
         opacity: 90%;
         border-right: 1px solid #e5e5e5;
         position: fixed;
@@ -9,11 +8,41 @@
         z-index: 1;
         display: inline-block;
         flex: 0 0 auto;
-    }
 }
 // .container{
 //   overflow: scroll;
 // }
+.contenido{
+   margin-left: 150px;
+   margin-top: 20px;
+}
+
 .footer{
   padding: 25px;
+}
+.verticalMenu {
+  width: 150px;
+  display: block;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.verticalMenu a {
+  background-color: #D90066;
+  color: white;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  width:100px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.verticalMenu a:hover {
+  background-color: #ccc;
+  cursor: pointer;
 }
