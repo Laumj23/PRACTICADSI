@@ -16,7 +16,8 @@ export class AuthService {
   private userName: string;
   private photoURL: string;
 
-  constructor(private afAuth: AngularFireAuth, private storage: AngularFireStorage) {
+  constructor(private afAuth: AngularFireAuth,
+              private storage: AngularFireStorage) {
     this.userData$ = afAuth.authState;
 
    }
@@ -74,12 +75,12 @@ export class AuthService {
     return this.uid;
   }
   public getUserName(): string {
-      this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged((user) => {
       if (user) {
         this.userName = user.displayName;
 
       } else {
-      console.log('funciona?' + this.userName);
+        console.log('funciona?' + this.userName);
       }
     });
     return this.userName;

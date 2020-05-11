@@ -11,19 +11,21 @@
                 <p>Consulta con la doctora {{c.doctor}}</p>
                 <p>{{c.centro}}</p>
             </mat-card-content>
-        </mat-card> 
+        </mat-card>
     </ng-container>
     
     <h2>Buscar servicios:</h2>  
-    <div class="cita-button">
-        <button mat-flat-button>Atención primaria
-            <mat-icon>house</mat-icon>
-        </button>
-        <button mat-flat-button>Atención enfermería</button>
-    </div>
-    <div class="cita-button">
-        <button mat-flat-button>Atención especializada</button>
-        <button mat-flat-button>Atención online</button>
+    <div class="div-button">
+        <div class="cita-button">
+            <button mat-flat-button>Atención primaria
+                <mat-icon>house</mat-icon>
+            </button>
+            <button mat-flat-button>Atención enfermería</button>
+        </div>
+        <div class="cita-button">
+            <button mat-flat-button>Atención especializada</button>
+            <button mat-flat-button>Atención online</button>
+        </div>
     </div>
 </div>
 <ng-template #loading>
