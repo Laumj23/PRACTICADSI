@@ -1,11 +1,11 @@
-export interface Role {
+export interface Roles {
   user?: boolean;
   doctor?: boolean;
 }
 export interface UserI {
   uid: string;
   email: string;
-  role: Role;
+  roles: Roles;
   password?: string;
   displayName?: string;
   photoURL?: string;

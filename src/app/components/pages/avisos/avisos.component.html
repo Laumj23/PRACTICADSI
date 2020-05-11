@@ -20,34 +20,34 @@
 
     <h2>Pruebas anteriores:</h2>
     <mat-selection-list class="aviso-list">
-        <mat-list-item *ngIf="avisos[1]!=undefined">
+        <a mat-list-item *ngIf="avisos[1]!=undefined">
             <mat-icon mat-list-icon>drafts</mat-icon>
             <div mat-line>{{avisos[1].prueba}}</div>
             <div mat-line>{{avisos[1].date.toDate() | date}}</div>
-        </mat-list-item>
+        </a>
         <mat-divider *ngIf="avisos[1]!=undefined"></mat-divider>
-        <mat-list-item *ngIf="avisos[2]!=undefined">
+        <a mat-list-item *ngIf="avisos[2]!=undefined">
             <mat-icon mat-list-icon>drafts</mat-icon>
             <div mat-line>{{avisos[2].prueba}}</div>
             <div mat-line>{{avisos[2].date.toDate() | date}}</div>
-        </mat-list-item>
+        </a>
         <mat-divider *ngIf="avisos[2]!=undefined"></mat-divider>
-        <mat-list-item *ngIf="avisos[3]!=undefined">
+        <a mat-list-item *ngIf="avisos[3]!=undefined">
             <mat-icon mat-list-icon>drafts</mat-icon>
             <div mat-line>{{avisos[3].prueba}}</div>
             <div mat-line>{{avisos[3].date.toDate() | date}}</div>
-        </mat-list-item>
+        </a>
         <mat-divider *ngIf="avisos[3]!=undefined"></mat-divider>
-        <mat-list-item *ngIf="avisos[4]!=undefined">
+        <a mat-list-item *ngIf="avisos[4]!=undefined">
             <mat-icon mat-list-icon>drafts</mat-icon>
             <div mat-line>{{avisos[4].prueba}}</div>
             <div mat-line>{{avisos[4].date.toDate() | date}}</div>
-        </mat-list-item>
+        </a>
         <mat-divider *ngIf="avisos[4]!=undefined"></mat-divider>
-        <mat-list-item>
+        <a mat-list-item>
             <mat-icon mat-list-icon></mat-icon>
             <div mat-line>Otros</div>
-        </mat-list-item>
+        </a>
     </mat-selection-list>
 </div>
 

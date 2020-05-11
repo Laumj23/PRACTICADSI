@@ -23,7 +23,6 @@ public currentImage: string;
   ngOnInit() {
     this.authSvc.userData$.subscribe(user => {
       this.initValuesForm(user);
-
     });
   }
 onSaveUser(user: UserI): void {
@@ -31,19 +30,19 @@ onSaveUser(user: UserI): void {
 }
 
 private initValuesForm(user: UserI): void {
-  if(user.photoURL){
-    this.currentImage=user.photoURL;
+  if (user.photoURL) {
+    this.currentImage = user.photoURL;
   }
   this.profileForm.patchValue({
+    roles: user.roles,
     displayName: user.displayName,
     email: user.email,
-    photoURL:user.photoURL,
+    photoURL: user.photoURL
   });
 }
-handleImage(image:FileI){
-  this.image=image;
 
+handleImage(image: FileI) {
+  this.image = image;
 }
-
 
 }

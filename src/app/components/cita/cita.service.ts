@@ -47,4 +47,17 @@ export class CitaService {
     )
     );
   }
+
+  public newCita(cita1: CitaI, cita2?: CitaI) {
+    const citaObj = {
+      centro: cita1.centro,
+      consulta: cita1.consulta,
+      date: cita1.date,
+      doctor: cita1.doctor,
+      user: cita1.user,
+      id: cita1.id
+    };
+    this.citaCollection.doc(cita1.id).update(cita2);
+    this.citaCollection.add(citaObj);
+  }
 }
