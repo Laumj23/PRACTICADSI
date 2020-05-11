@@ -14,7 +14,7 @@ export class AuthService {
   private uid: string;
   private filePath: string;
   private userName: string;
-
+  private photoURL: string;
 
   constructor(private afAuth: AngularFireAuth, private storage: AngularFireStorage) {
     this.userData$ = afAuth.authState;
@@ -31,13 +31,33 @@ export class AuthService {
     this.afAuth.signOut();
   }
 
-  preSaveUserProfile(user: UserI): void {
-    this.saveUserProfile(user);
+  preSaveUserProfile(user: UserI, image?: FileI): void {
+    if(image){
+        this.saveUserProfile(user, image);
+    }else{
+      this.saveUserProfile(user);
+    }
+
+  }
+  private uploadImage(user: UserI, image:FileI): void{
+    this.filePath=`images/${image.name}`;
+    const fileRef = this.storage.ref(this.filePath);
+    const task = this.storage.upload(this.filePath, image);
+    task.snapshotChanges()
+    .pipe(
+      finalize( ()=> {
+        fileRef.getDownloadURL().subscribe(urlImage => {
+          user.photoURL = urlImage;
+          this.saveUserProfile(user);
+        });
+      })
+    ).subscribe();
   }
 
- async saveUserProfile(user: UserI) {
+ async saveUserProfile(user: UserI, image?:FileI) {
     (await this.afAuth.currentUser).updateProfile({
-      displayName: user.displayName
+      displayName: user.displayName,
+      photoURL: user.photoURL
     }).
     then( () => console.log('User update'))
     .catch(err => console.log('Error', err));
@@ -64,7 +84,17 @@ export class AuthService {
     });
     return this.userName;
   }
+  public getUserImage(): string {
+      this.afAuth.onAuthStateChanged((user) => {
+      if (user) {
+        this.photoURL = user.photoURL;
 
+      } else {
+      console.log('funciona?' + this.userName);
+      }
+    });
+    return this.photoURL;
+  }
 
 
 

@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
 public posts$: Observable<PostI[]>;
 public userName: string;
-
+public currentImage: string;
 
 
   constructor(private postSvc: PostService, public authSvc: AuthService) { }
@@ -24,6 +24,7 @@ public userName: string;
     this.userName=this.authSvc.getUserName();
     console.log('user '+this.userName);
     this.posts$ = this.postSvc.getPostsFiltered(this.userName);
+    this.currentImage=this.authSvc.getUserImage();
   }
 
 }
