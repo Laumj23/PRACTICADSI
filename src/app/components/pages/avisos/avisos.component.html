@@ -5,14 +5,21 @@
     <ng-container *ngIf="avisos.length>0; else empty">
         <mat-card class="aviso-card">
             <mat-card-header>
+                <mat-icon mat-card-avatar>how_to_reg</mat-icon>
                 <mat-card-title>{{avisos[0].prueba}}</mat-card-title>
                 <mat-card-subtitle>{{avisos[0].date.toDate() | date}}</mat-card-subtitle>
             </mat-card-header>
+            <mat-card-content>
+                <p>{{avisos[0].description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button color="primary">Ver resultados</button>
+            </mat-card-actions>
         </mat-card>
     </ng-container>
 
     <h2>Pruebas anteriores:</h2>
-    <mat-list class="aviso-list">
+    <mat-selection-list class="aviso-list">
         <mat-list-item *ngIf="avisos[1]!=undefined">
             <mat-icon mat-list-icon>drafts</mat-icon>
             <div mat-line>{{avisos[1].prueba}}</div>
@@ -41,7 +48,7 @@
             <mat-icon mat-list-icon></mat-icon>
             <div mat-line>Otros</div>
         </mat-list-item>
-    </mat-list>
+    </mat-selection-list>
 </div>
 
 <ng-template #loading>
