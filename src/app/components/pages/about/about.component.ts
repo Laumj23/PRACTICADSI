@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  public currentImage: string;
 
-  constructor() { }
+
+  constructor(public authSvc: AuthService) { }
 
   ngOnInit() {
+    this.currentImage=this.authSvc.getUserImage();
   }
 
 }

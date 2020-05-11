@@ -9,13 +9,15 @@ import { FileI } from './../../../shared/models/file.interface';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
+public image: FileI;
+public currentImage: string;
 
   constructor(private authSvc: AuthService) { }
 
   public profileForm = new FormGroup({
     displayName: new FormControl('', Validators.required),
-    email: new FormControl({value: '', disabled : true}, Validators.required)
+    email: new FormControl({value: '', disabled : true}, Validators.required),
+    photoURL: new FormControl('', Validators.required)
   });
 
   ngOnInit() {
@@ -25,14 +27,22 @@ export class ProfileComponent implements OnInit {
     });
   }
 onSaveUser(user: UserI): void {
-  this.authSvc.preSaveUserProfile(user);
+  this.authSvc.preSaveUserProfile(user, this.image);
 }
 
 private initValuesForm(user: UserI): void {
+  if(user.photoURL){
+    this.currentImage=user.photoURL;
+  }
   this.profileForm.patchValue({
     displayName: user.displayName,
-    email: user.email
+    email: user.email,
+    photoURL:user.photoURL,
   });
+}
+handleImage(image:FileI){
+  this.image=image;
+
 }
 
 

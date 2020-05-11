@@ -1,29 +1,35 @@
-<mat-card class="card-about">
-  <mat-card-header>
-    <mat-card-title>About</mat-card-title>
-    <mat-card-subtitle>Version 0.0.1</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>There are many variations of passages of Lorem Ipsum available,
-     but the majority have suffered alteration in some form, by injected humour,
-      or randomised words which don't look even slightly believable.
-      If you are going to use a passage of Lorem Ipsum, you need to be sure
-    there isn't anything embarrassing hidden in the middle of text. All the Lorem
-     Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
-     making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
-     combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
-      The generated Lorem Ipsum is therefore always free from repetition, injected humour,
-      or non-characteristic words etc.
-    </p>
-    <p>There are many variations of passages of Lorem Ipsum available,
-     but the majority have suffered alteration in some form, by injected humour,
-      or randomised words which don't look even slightly believable.
-      If you are going to use a passage of Lorem Ipsum, you need to be sure
-    there isn't anything embarrassing hidden in the middle of text. All the Lorem
-     Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
-     making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
-     combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
-      The generated Lorem Ipsum is therefore always free from repetition, injected humour,
-      or non-characteristic words etc.</p>
-  </mat-card-content>
+<div class="profile">
+<h2>Ajustes</h2>
+<img [src]="currentImage" alt=""/>
+<h2>Tu resumen diario</h2>
+</div>
+<h3>Configuración del perfil</h3>
+<mat-card class="card-ajustes">
+  <mat-list>
+  <mat-list-item>Foto del perfil</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Datos personales</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Enlazar redes sociales</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Dispositivos externo</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Hospitales guardados</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Registro de consultas</mat-list-item>
+  </mat-list>
+</mat-card>
+<h3>Notificaciones</h3>
+<mat-card class="card-notificaciones">
+  <mat-list>
+  <mat-list-item>Ajuste de notificaciones</mat-list-item>
+  </mat-list>
+</mat-card>
+<h3>Ayuda</h3>
+<mat-card class="card-ayuda">
+  <mat-list>
+  <mat-list-item>Soporte técnico</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Términos y condiciones</mat-list-item>
+  </mat-list>
 </mat-card>
