@@ -6,6 +6,7 @@ import { CitaI } from 'src/app/shared/models/cita.interface';
 import { UserI } from 'src/app/shared/models/user.interface';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { firestore } from 'firebase';
+import { Router } from '@angular/router';
 
 interface DialogData {
   data: CitaI;
@@ -28,7 +29,10 @@ export class NewCitaComponent implements OnInit {
     {value: 'Atención especializada', viewValue: 'Atención especializada'}
   ];
 
-  constructor(public dialog: MatDialog, private citaSvc: CitaService, private authSvc: AuthService) { }
+  constructor(public dialog: MatDialog,
+              private citaSvc: CitaService,
+              private authSvc: AuthService,
+              private router: Router) { }
 
   public currentImage: string;
 
@@ -63,14 +67,17 @@ export class NewCitaComponent implements OnInit {
   }
 
   openDialog(data: CitaI): void {
-    const dialogRef = this.dialog.open(DialogNewCita, {
-      width: '250px',
+    const dialogRef = this.dialog.open(DialogNewCitaComponent, {
+      width: '400px',
       data: {data}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog closed');
-      this.addNewCita(data);
+      if (result) {
+        this.addNewCita(data);
+      }
+      this.router.navigate(['/citas']);
     });
   }
 
@@ -78,12 +85,13 @@ export class NewCitaComponent implements OnInit {
 
 @Component({
   selector: 'app-dialog-new-cita',
-  templateUrl: 'dialog-new-cita.html'
+  templateUrl: 'dialog-new-cita.html',
+  styleUrls: ['./new-cita.component.scss']
 })
-export class DialogNewCita {
+export class DialogNewCitaComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<DialogNewCita>,
+    public dialogRef: MatDialogRef<DialogNewCitaComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {

@@ -28,6 +28,17 @@
     margin: 10px;
     margin-top: 0;
   }
+  .cita-card{
+    background: #ffffff;
+    opacity: 70%;
+    color: #A7004F;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    flex: 0 1 calc(24% - 32px);
+    margin: 10px;
+    margin-top: 0;
+  }
   h1, h2 {
     color: white;
     margin-top: 5px;
@@ -35,9 +46,10 @@
     display: inline-block;
     width: 65%;
   }
-  img{
+  .profile{
+    max-height: 108px;
+    img{
     margin: 10px;
-    // align: right;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -45,28 +57,44 @@
     &:hover{
       border: 2px solid #7b1fa2;
       cursor:pointer;
-    }
+      }
     float: right;
+    }
   }
+  
   form{
     margin: 10px;
     padding: 10px;
     background: #ffffff;
     opacity: 70%;
     color: #A7004F;
-    align-items: center;
-    place-content: center;
+    
     p{
       width: 100%;
+      align-items: center;
+      place-content: center;
       button{
-        width: 100%;
-        background: #4e0561;
+        float: right;
+        width: 40%;
         &:hover{
         background: #3c034b;
       }
       }
       mat-form-field{
         width: 100%;
+      }
+    }
+  }
+  .container-button {
+    margin: 10px;
+    align-items: center;
+    place-content: center;
+    padding-right: 20px;
+    button{
+      float: right;
+      width: 40%;
+      &:hover{
+      background: #3c034b;
       }
     }
   }

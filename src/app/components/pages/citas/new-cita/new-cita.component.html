@@ -30,8 +30,9 @@
             <input matInput disabled placeholder="Centro" formControlName="centro">
         </mat-form-field>
         </p>
-        <p class="container-button">
-            <button (click)="openDialog(newCitaForm.value)" mat-flat-button>Save</button>
-        </p>
     </form>
+    <div class="container-button">
+        <button mat-raised-button (click)="openDialog(newCitaForm.value)"  
+                [disabled]="!newCitaForm.valid" color="primary">Guardar</button>
+    </div>
 </div>

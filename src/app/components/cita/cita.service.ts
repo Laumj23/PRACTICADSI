@@ -11,7 +11,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class CitaService {
   private citaCollection: AngularFirestoreCollection<CitaI>;
 
-  constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {
+  constructor(private afs: AngularFirestore,
+              private storage: AngularFireStorage) {
     this.citaCollection = afs.collection<CitaI>('citas');
   }
 
@@ -48,7 +49,7 @@ export class CitaService {
     );
   }
 
-  public newCita(cita1: CitaI, cita2?: CitaI) {
+  public newCita(cita1: CitaI) {
     const citaObj = {
       centro: cita1.centro,
       consulta: cita1.consulta,
@@ -57,7 +58,6 @@ export class CitaService {
       user: cita1.user,
       id: cita1.id
     };
-    this.citaCollection.doc(cita1.id).update(cita2);
     this.citaCollection.add(citaObj);
   }
 }
