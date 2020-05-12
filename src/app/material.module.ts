@@ -18,7 +18,9 @@ import { MatCardModule,
           MatSortModule,
           MatDialogModule,
           MatSelectModule,
-          MatProgressBarModule
+          MatProgressBarModule,
+          MatDatepickerModule,
+          MatNativeDateModule
           } from '@angular/material';
 
 const myModule = [
@@ -39,8 +41,10 @@ const myModule = [
            MatSortModule,
            MatDialogModule,
            MatSelectModule,
-           MatProgressBarModule
-]
+           MatProgressBarModule,
+           MatDatepickerModule,
+           MatNativeDateModule
+];
 
 @NgModule({
   declarations: [],

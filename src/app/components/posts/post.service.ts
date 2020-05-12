@@ -87,6 +87,6 @@ public getPostsModel(): Observable<PostI[]> {
           return {id, ...data};
     })
   )
-  );}
+  ); }
 
 }

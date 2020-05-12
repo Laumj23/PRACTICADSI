@@ -9,7 +9,7 @@ import { PostComponent } from './components/posts/post/post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
-
+import { NewCitaComponent, DialogNewCita } from './components/pages/citas/new-cita/new-cita.component';
 /*Firebase*/
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
@@ -34,7 +34,9 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     ContainerAppComponent,
     ModalComponent,
     DeleteDialogComponent,
-    EditPostComponent
+    EditPostComponent,
+    NewCitaComponent,
+    DialogNewCita
   ],
   imports: [
     BrowserModule,
@@ -48,9 +50,8 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     AngularFireAuthModule,
     ReactiveFormsModule,
     EditPostModule,
-
   ],
-  entryComponents: [ModalComponent, DeleteDialogComponent],
+  entryComponents: [ModalComponent, DeleteDialogComponent, DialogNewCita],
   providers: [{provide: BUCKET, useValue: 'gs://practicafinal-2e9b3.appspot.com'}],
   bootstrap: [AppComponent],
    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

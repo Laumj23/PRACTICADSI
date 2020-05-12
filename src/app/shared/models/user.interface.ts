@@ -6,6 +6,7 @@ export interface UserI {
   uid: string;
   email: string;
   roles: Roles;
+  centro?: string;
   password?: string;
   displayName?: string;
   photoURL?: string;

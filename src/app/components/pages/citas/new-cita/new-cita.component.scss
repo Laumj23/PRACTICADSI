@@ -6,7 +6,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     justify-content: center;
-
   a{
     cursor: pointer;
     color: #A7004F;
@@ -29,22 +28,6 @@
     margin: 10px;
     margin-top: 0;
   }
-  .cita-card{
-    background: #ffffff;
-    opacity: 70%;
-    color: #A7004F;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-    flex: 0 1 calc(24% - 32px);
-    margin: 10px;
-    margin-top: 0;
-  }
-  p.content{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
   h1, h2 {
     color: white;
     margin-top: 5px;
@@ -65,30 +48,26 @@
     }
     float: right;
   }
-  .div-button{
-    // display: flex;
-    // flex-direction: row;
-
-    .cita-button{
-      margin: 10px;
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      font-size: 100%;
-      align-items: center;
-      place-content: center;
-    }
-    button{
-      padding: 1em 2.4em;
-      font-size: .9em;
-      margin: 1em;
-      text-decoration: none;
-      text-align: center;
-      background: #ffffff;
-      opacity: 70%;
-      color: #A7004F;
-      width: 40%;
-      float: inline-start;
+  form{
+    margin: 10px;
+    padding: 10px;
+    background: #ffffff;
+    opacity: 70%;
+    color: #A7004F;
+    align-items: center;
+    place-content: center;
+    p{
+      width: 100%;
+      button{
+        width: 100%;
+        background: #4e0561;
+        &:hover{
+        background: #3c034b;
+      }
+      }
+      mat-form-field{
+        width: 100%;
+      }
     }
   }
 }

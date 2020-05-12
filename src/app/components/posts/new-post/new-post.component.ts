@@ -17,7 +17,7 @@ export class NewPostComponent implements OnInit {
   constructor(private postSvc: PostService, private authSvc: AuthService) { }
 
   ngOnInit() {
-    this.authSvc.userData$.subscribe(user =>{
+    this.authSvc.userData$.subscribe(user => {
     this.initValuesForm(user);
     });
 

@@ -13,12 +13,14 @@ export class AvisosComponent implements OnInit {
 
   public avisos$: Observable<AvisoI[]>;
   public userID: string;
+  public currentImage: string;
 
   constructor(private avisoSvc: AvisoService, private authSvc: AuthService) { }
 
   ngOnInit() {
     this.userID = this.authSvc.getUserID();
     this.avisos$ = this.avisoSvc.getAvisosByUser(this.userID);
+    this.currentImage = this.authSvc.getUserImage();
   }
 
 }

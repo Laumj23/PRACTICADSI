@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>¿Confirmar cita?</h1>
+<div mat-dialog-content>
+    <mat-card class="cita-card">
+        <mat-card-header>
+            <mat-card-title>{{data.data.consulta}}</mat-card-title>
+            <mat-card-subtitle>{{data.data.date | date}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Consulta con la doctora {{data.data.doctor}}</p>
+            <p>{{data.data.centro}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button form="newCitaForm" type="submit" [mat-dialog-close]=true cdkFocusInitial>Ok</button>
+</div>

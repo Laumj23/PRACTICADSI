@@ -1,0 +1,37 @@
+<div class="container">
+
+    <div class="profile">
+        <h1>Nueva cita</h1>
+        <img [src]="currentImage" alt=""/>
+    </div>
+
+    <form [formGroup]="newCitaForm" (ngSubmit)="addNewCita(newCitaForm.value)">
+        <p> Consulta:
+        <mat-form-field appearance="fill">
+            <mat-label>Especifica consulta:</mat-label>
+            <mat-select form="newCitaForm" formControlName="consulta">
+                <mat-option *ngFor="let consulta of consultas" [value]="consulta.value">
+                  {{consulta.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </p>
+        <p> Fecha y hora:
+        <mat-form-field appearance="fill">
+            <mat-label>Elige una fecha</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        </p>
+        <p> Centro:
+        <mat-form-field appearance="fill">
+            <mat-label>Centro</mat-label>
+            <input matInput disabled placeholder="Centro" formControlName="centro">
+        </mat-form-field>
+        </p>
+        <p class="container-button">
+            <button (click)="openDialog(newCitaForm.value)" mat-flat-button>Save</button>
+        </p>
+    </form>
+</div>
