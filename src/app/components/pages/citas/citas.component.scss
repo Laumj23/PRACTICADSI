@@ -39,6 +39,13 @@
     flex: 0 1 calc(24% - 32px);
     margin: 10px;
     margin-top: 0;
+    max-width: 350px;
+    align-self: center;
+
+    .mat-card-avatar{
+      font-size: 48px;
+      margin-right: 5px;
+    }
   }
   p.content{
     white-space: nowrap;
@@ -79,16 +86,24 @@
       place-content: center;
     }
     button{
-      padding: 1em 2.4em;
-      font-size: .9em;
+      padding: 1em 1em;
       margin: 1em;
       text-decoration: none;
       text-align: center;
       background: #ffffff;
       opacity: 70%;
       color: #A7004F;
-      width: 40%;
+      min-width: 200px;
+      max-width: 200px;
       float: inline-start;
+      p{
+        font-size: medium;
+        margin: 0;
+      }
+      mat-icon{
+        font-size: 24px;
+        float: right;
+      }
     }
   }
 }

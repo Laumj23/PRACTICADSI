@@ -12,19 +12,24 @@ import { NewCitaModule } from './new-cita/new-cita.module';
 })
 export class CitasComponent implements OnInit {
 
-  public citas$: Observable<CitaI[]>;
+  public citasUser$: Observable<CitaI[]>;
+  public citasDoctor$: Observable<CitaI[]>;
   public user: UserI;
   public userID: string;
+  public userName: string;
   public currentImage: string;
 
-  constructor(private citaSvc: CitaService, private authSvc: AuthService) { }
+  constructor(private citaSvc: CitaService, public authSvc: AuthService) { }
 
   ngOnInit() {
-    // this.authSvc.userData$.subscribe(user =>
-    //   this.userID = user.displayName);
     this.authSvc.userData$.subscribe(user => this.user = user);
+
+    this.userName = this.authSvc.getUserName();
+    this.citasDoctor$ = this.citaSvc.getCitasDoctor(this.userName);
+
     this.userID = this.authSvc.getUserID();
-    this.citas$ = this.citaSvc.getCitasFiltered(this.userID);
+    this.citasUser$ = this.citaSvc.getCitasFiltered(this.userID);
+
     this.currentImage = this.authSvc.getUserImage();
   }
 

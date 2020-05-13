@@ -1,24 +1,42 @@
-<div class="wrapper">
+<div class="otro">
   <div class="display" *ngIf="screenWidth<959; else vertical">
     <div class="menu">
       <app-toolbar></app-toolbar>
     </div>
-  <div class="container-responsive">
-    <router-outlet></router-outlet>
-  </div>
+    <div class="container-responsive">
+      <router-outlet></router-outlet>
+    </div>
   </div>
   <div class="footer">
   </div>
 </div>
 <ng-template #vertical>
-<div class="verticalMenu">
-  <a routerLink="/home"  routerLinkActive="active">Resumen</a>
-  <a routerLink="/citas" routerLinkActive="active">Citas</a>
-  <a routerLink="/avisos" routerLinkActive="active" >Avisos</a>
-  <a routerLink="/actividad" routerLinkActive="active" >Actividad</a>
-  <a routerLink="/about"routerLinkActive="active" >Configuración</a>
-</div>
-<div class="contenido">
-  <router-outlet></router-outlet>
+<div class="wrapper">
+  <div class="verticalMenu">
+    <h1>Helse</h1>
+    <a routerLink="/home"  routerLinkActive="active">
+      <span class="material-icons">face</span> 
+      <p class="text">Resumen</p>
+    </a>
+    <a routerLink="/citas" routerLinkActive="active">
+      <span class="material-icons">date_range</span>
+      <p class="text">Citas</p>
+    </a>
+    <a routerLink="/avisos" routerLinkActive="active" >
+      <span class="material-icons">markunread_mailbox</span>
+      <p class="text">Avisos</p>
+    </a>
+    <a routerLink="/actividad" routerLinkActive="active" >
+      <span class="material-icons">wb_sunny</span>
+      <p class="text">Actividad</p>
+    </a>
+    <a routerLink="/about"routerLinkActive="active" >
+      <span class="material-icons">settings</span>
+      <p class="text">Configuración</p>
+    </a>
+  </div>
+  <div class="contenido">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 </ng-template>

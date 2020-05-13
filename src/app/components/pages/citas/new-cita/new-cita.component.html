@@ -19,9 +19,10 @@
         <p> Fecha y hora:
         <mat-form-field appearance="fill">
             <mat-label>Elige una fecha</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date">
+            <input matInput type="datetime-local" formControlName="date">
+            <!-- <input matInput [matDatepicker]="picker" formControlName="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #picker></mat-datepicker> -->
         </mat-form-field>
         </p>
         <p> Centro:
@@ -29,6 +30,12 @@
             <mat-label>Centro</mat-label>
             <input matInput disabled placeholder="Centro" formControlName="centro">
         </mat-form-field>
+        </p>
+        <p> Detalles:
+            <mat-form-field appearance="fill">
+                <mat-label>Detalles:</mat-label>
+                <input matInput placeholder="Detalles" formControlName="details">
+            </mat-form-field>
         </p>
     </form>
     <div class="container-button">
