@@ -1,39 +1,70 @@
-
-.navbar{
-  background-color: #D90066;
-  height: 60px;
-
-  mat-icon{
-    cursor: pointer;
-  }
+.menu {
+        opacity: 90%;
+        border-right: 1px solid #e5e5e5;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        display: inline-block;
+        flex: 0 0 auto;
 }
-
-mat-sidenav{
-  width: 200px;
-  cursor:pointer;
-  background: #451e89;
+.contenido{
+   margin-left: 150px;
+   margin-top: 20px;
+}
+.verticalMenu {
+  width: 150px;
+  display: block;
   position: fixed;
-  top: 55px;
-  z-index: 1000;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 16px;
 }
-.mat-list-base .mat-list-item,
-a{
-  color: #fff;
+
+.verticalMenu a {
+  background-color: #D90066;
+  color: white;
+  display: block;
+  padding: 12px;
   text-decoration: none;
+  width:100px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.verticalMenu a:hover {
+  background-color: #white;
+  opacity: 70%;
   cursor: pointer;
 }
+.material-icons{
+  color:#DE74A6;
+  opacity: 90%;
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+  margin: 20px;
 
+}
+.active {
+  .material-icons{
+  color: white;
+  }
+}
+mat-toolbar{
+  background-color: #D90066;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
 @media screen and (max-width: 959px){
-.navbar{
-          opacity: 90%;
-          border-right: 1px solid #e5e5e5;
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          height: 50px;
-          width: 100%;
-          z-index: 1;
-          display: inline-block;
-
- }
+  mat-toolbar{
+      background-color: #D90066;
+      height: 3em;
+  }
 }

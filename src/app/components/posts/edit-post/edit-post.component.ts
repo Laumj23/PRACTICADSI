@@ -21,7 +21,7 @@ export class EditPostComponent implements OnInit {
 
   public editPostForm = new FormGroup({
     id:new FormControl('', Validators.required),
-    titlePost:new FormControl('', Validators.required),
+    titlePost:new FormControl({value: '', disabled : true}, Validators.required),
     contentPost:new FormControl('', Validators.required),
     data:new FormControl('', Validators.required),
     user:new FormControl('', Validators.required)
