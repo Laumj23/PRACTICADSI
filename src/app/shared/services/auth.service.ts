@@ -132,6 +132,11 @@ export class AuthService {
     return this.checkAuthorization(user, allowed);
   }
 
+  async register(user: UserI) {
+    const { email, password } = user;
+    var result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+}
+
   private checkAuthorization(user: UserI, allowedRoles: string[]): boolean {
     if (!user) {
       return false;
