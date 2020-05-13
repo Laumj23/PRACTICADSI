@@ -115,6 +115,7 @@ export class AuthService {
     });
     return this.userName;
   }
+
   public getUserImage(): string {
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {
@@ -127,8 +128,8 @@ export class AuthService {
     return this.photoURL;
   }
 
-  canRead(user: UserI): boolean {
-    const allowed = ['doctor', 'user'];
+  isDoctor(user: UserI): boolean {
+    const allowed = ['doctor'];
     return this.checkAuthorization(user, allowed);
   }
 

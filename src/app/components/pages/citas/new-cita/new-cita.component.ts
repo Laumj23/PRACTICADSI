@@ -9,7 +9,7 @@ import { firestore } from 'firebase';
 import { Router } from '@angular/router';
 
 interface DialogData {
-  data: CitaI;
+  data: any;
 }
 
 interface Consulta {
@@ -35,6 +35,8 @@ export class NewCitaComponent implements OnInit {
               private router: Router) { }
 
   public currentImage: string;
+  public cita: CitaI;
+  public aux: firestore.Timestamp;
 
   public newCitaForm = new FormGroup({
     centro: new FormControl('', Validators.required),
@@ -42,7 +44,8 @@ export class NewCitaComponent implements OnInit {
     date: new FormControl('', Validators.required),
     doctor: new FormControl('', Validators.required),
     user: new FormControl('', Validators.required),
-    id: new FormControl('', Validators.required)
+    id: new FormControl('', Validators.required),
+    details: new FormControl('')
   });
 
   addNewCita(data: CitaI) {
@@ -55,7 +58,7 @@ export class NewCitaComponent implements OnInit {
       user: user.uid,
       centro: user.centro,
       doctor: 'Teresa Rodríguez',
-      id: 'cita123loco'
+      id: 'cita-id'
     });
   }
 
@@ -66,7 +69,7 @@ export class NewCitaComponent implements OnInit {
     });
   }
 
-  openDialog(data: CitaI): void {
+  openDialog(data): void {
     const dialogRef = this.dialog.open(DialogNewCitaComponent, {
       width: '400px',
       data: {data}
@@ -74,11 +77,26 @@ export class NewCitaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog closed');
+      this.cita = this.checkCita(data);
       if (result) {
-        this.addNewCita(data);
+        this.addNewCita(this.cita);
       }
       this.router.navigate(['/citas']);
     });
+  }
+
+  checkCita(data): CitaI {
+    data.date = data.date.replace('T', ' ');
+    const citaObj = {
+      centro: data.centro,
+      consulta: data.consulta,
+      date: data.date,
+      doctor: data.doctor,
+      user: data.user,
+      id: data.id,
+      detalles: data.details
+    };
+    return citaObj;
   }
 
 }

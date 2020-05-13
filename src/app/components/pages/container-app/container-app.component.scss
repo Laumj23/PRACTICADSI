@@ -1,49 +1,82 @@
+.wrapper{
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 1e-09px;
+}
 .menu {
-        opacity: 90%;
-        border-right: 1px solid #e5e5e5;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        z-index: 1;
-        display: inline-block;
-        flex: 0 0 auto;
+  opacity: 90%;
+  border-right: 1px solid #e5e5e5;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  display: inline-block;
+  flex: 0 0 auto;
 }
 // .container{
 //   overflow: scroll;
 // }
 .contenido{
-   margin-left: 150px;
-   margin-top: 20px;
+  margin-left: 20%;
+  box-sizing: border-box;
+  flex: 1 1 100%;
+  max-width: 70%;
 }
-
 .footer{
   padding: 25px;
 }
 .verticalMenu {
-  width: 150px;
-  display: block;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  overflow-x: hidden;
   padding-top: 16px;
-}
+  flex: 1 1 100%;
+  max-width: 30%;
+  padding-left: 20px;
 
-.verticalMenu a {
-  background-color: #D90066;
-  color: white;
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-  width:100px;
-  border-radius: 5px;
-  margin: 10px;
-}
+  h1 {
+    color: white;
+  }
 
-.verticalMenu a:hover {
-  background-color: #white;
-  opacity: 70%;
-  cursor: pointer;
+  a {
+    flex: 1;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    width:150px;
+    border-radius: 20px;
+    vertical-align: super;
+    margin: 5px;
+
+    span.material-icons {
+      float: inline-start;
+      margin: 5px;
+    }
+
+    p.text{
+      margin-left: 5px;
+      height: 32px;
+      width: 70%;
+      display: inline-block;
+      margin: 0;
+      vertical-align: super;
+    }
+  }
+  a:hover{
+    background-color: #A7004F;
+    opacity: 70%;
+    cursor: pointer;
+  }
+  a.active{
+    background-color: #A7004F;
+    opacity: 30%;
+    cursor: pointer;
+  }
 }

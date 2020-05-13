@@ -39,10 +39,13 @@
     flex: 0 1 calc(24% - 32px );
     margin: 10px;
     margin-top: 0;
+    max-width: 350px;
+    align-self: center;
+
 
     mat-icon{
       font-size: 48px;
-      margin-right: 5px;
+      margin-right: 10px;
     }
   }
   p.content{
@@ -80,11 +83,10 @@
     font-size: 80%;
     flex: 0 1 calc(24% - 32px);
     margin: 10px;
+    margin-bottom: 25px;
     margin-top: 0;
-
-    div{
-
-    }
+    width: 75%;
+    align-self: center;
   }
 }
 /*responsive*/

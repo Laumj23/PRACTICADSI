@@ -49,14 +49,30 @@ export class CitaService {
     );
   }
 
-  public newCita(cita1: CitaI) {
+  public getCitasDoctor(docName: string): Observable<CitaI[]> {
+    console.log('cositas ' + docName);
+    return this.afs.collection<CitaI>('citas', ref => ref.where('doctor', '==', docName))
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(a => {
+            const data = a.payload.doc.data() as CitaI;
+            const id = a.payload.doc.id;
+            return {id, ...data};
+      })
+    )
+    );
+  }
+
+  public newCita(cita: CitaI) {
     const citaObj = {
-      centro: cita1.centro,
-      consulta: cita1.consulta,
-      date: cita1.date,
-      doctor: cita1.doctor,
-      user: cita1.user,
-      id: cita1.id
+      centro: cita.centro,
+      consulta: cita.consulta,
+      date: cita.date,
+      doctor: cita.doctor,
+      user: cita.user,
+      id: cita.id,
+      detalles: cita.detalles
     };
     this.citaCollection.add(citaObj);
   }
