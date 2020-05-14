@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+//con este componente se puede loggear un usuario
 export class LoginComponent implements OnInit {
-
+//inicializamos 
   constructor(private authSvc: AuthService, private router: Router) { }
 
   loginForm = new FormGroup({
