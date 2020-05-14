@@ -14,23 +14,25 @@ export class CitasComponent implements OnInit {
 
   public citasUser$: Observable<CitaI[]>;
   public citasDoctor$: Observable<CitaI[]>;
-  public user: UserI;
-  public userID: string;
-  public userName: string;
+  public doctor: boolean;
   public currentImage: string;
 
   constructor(private citaSvc: CitaService, public authSvc: AuthService) { }
 
   ngOnInit() {
-    this.authSvc.userData$.subscribe(user => this.user = user);
-
-    this.userName = this.authSvc.getUserName();
-    this.citasDoctor$ = this.citaSvc.getCitasDoctor(this.userName);
-
-    this.userID = this.authSvc.getUserID();
-    this.citasUser$ = this.citaSvc.getCitasFiltered(this.userID);
-
-    this.currentImage = this.authSvc.getUserImage();
+    // La página identifica al usuario conectado
+    this.authSvc.userData$.subscribe(user => {
+      // Comprueba si es un doctor y lo guarda
+      this.doctor = this.authSvc.isDoctor(user);
+      // En caso de serlo, coge las citas con su nombre
+      if (this.doctor) {
+        this.citasDoctor$ = this.citaSvc.getCitasDoctor(user.displayName);
+      // En caso de ser un usuario, coge las citas con su uid
+      } else {
+        this.citasUser$ = this.citaSvc.getCitasFiltered(user.uid);
+      }
+      this.currentImage = this.authSvc.getUserImage();
+    });
   }
 
 }

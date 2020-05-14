@@ -13,18 +13,18 @@ import { TableComponent } from '../../../shared/components/table/table.component
 })
 export class HomeComponent implements OnInit {
 
-public posts$: Observable<PostI[]>;
-public userName: string;
-public currentImage: string;
-
+  public posts$: Observable<PostI[]>;
+  public userName: string;
+  public currentImage: string;
 
   constructor(private postSvc: PostService, public authSvc: AuthService) { }
 
   ngOnInit() {
-    this.userName = this.authSvc.getUserName();
-    console.log('user ' + this.userName);
-    this.posts$ = this.postSvc.getPostsFiltered(this.userName);
-    this.currentImage = this.authSvc.getUserImage();
+    this.authSvc.userData$.subscribe(user => {
+      this.userName = user.displayName;
+      this.posts$ = this.postSvc.getPostsFiltered(user.displayName);
+      this.currentImage = this.authSvc.getUserImage();
+    });
   }
 
 }

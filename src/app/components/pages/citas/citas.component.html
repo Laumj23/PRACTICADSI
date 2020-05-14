@@ -1,12 +1,15 @@
-<div *ngIf="authSvc.isDoctor(this.user); else userpage">
+<!-- CITAS -->
+<!-- Esta aplicación despliega dos layouts disintos en función de si el usuario es doctor o un usuario normal -->
+<div *ngIf="this.doctor; else userpage">
+    <!-- Comprueba que hay citas para ese usuario -->
     <div class="container" *ngIf="citasDoctor$ | async as dcita; else loading">
-    
+        <!-- Despliega la cabecera de la página -->
         <div class="profile">
             <h1>Tus citas</h1>
             <img [src]="currentImage" alt=""/>
             <h2>Tus próximas citas:</h2>
         </div>
-    
+        <!-- Despliega las citas correspondientes al usuario -->
         <ng-container *ngIf="dcita.length>0; else empty">
             <mat-card class="cita-card" *ngFor="let c of dcita">
                 <mat-card-header>
@@ -20,7 +23,7 @@
                 </mat-card-content>
             </mat-card>
         </ng-container>
-    
+        <!--  Se despliegan botones con distintas opciones del usuario -->
         <h2>Opciones:</h2>
         <div class="div-button">
             <div class="cita-button" >
@@ -32,7 +35,7 @@
         </div>
     </div>
 </div>
-
+<!-- El layout del usuario normal es igual en estructura al anterior -->
 <ng-template #userpage>
     <div class="container" *ngIf="citasUser$ | async as cita; else loading">
     
@@ -74,12 +77,13 @@
         </div>
     </div>
 </ng-template>
-
+<!-- Spinner para buffering -->
 <ng-template #loading>
     <div class="container-spinner">
     <mat-spinner></mat-spinner>
     </div>
 </ng-template>
+<!-- En caso de que no haya citas, se despliega un mensaje avisando -->
 <ng-template #empty>
   <mat-card class="empty">
       <mat-card-content>

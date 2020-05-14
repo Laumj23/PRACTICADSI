@@ -26,7 +26,9 @@ export class NewCitaComponent implements OnInit {
 
   consultas: Consulta[] = [
     {value: 'Atención primaria', viewValue: 'Atención primaria'},
-    {value: 'Atención especializada', viewValue: 'Atención especializada'}
+    {value: 'Atención especializada', viewValue: 'Atención especializada'},
+    {value: 'Dentista', viewValue: 'Atención especializada'},
+    {value: 'Podólogo', viewValue: 'Atención especializada'}
   ];
 
   constructor(public dialog: MatDialog,
@@ -38,6 +40,7 @@ export class NewCitaComponent implements OnInit {
   public cita: CitaI;
   public aux: firestore.Timestamp;
 
+  // Modelo del formulario de entrada
   public newCitaForm = new FormGroup({
     centro: new FormControl('', Validators.required),
     consulta: new FormControl('', Validators.required),
@@ -47,12 +50,13 @@ export class NewCitaComponent implements OnInit {
     id: new FormControl('', Validators.required),
     details: new FormControl('')
   });
-
+  // Llama a CitaService para añadir una nueva cita a la db
   addNewCita(data: CitaI) {
     console.log('New cita', data);
     this.citaSvc.newCita(data);
   }
-
+  // Inicia algunos valores para llenar la cita
+  // Algunos valores están para casos de prueba
   public initValuesForm(user: UserI): void {
     this.newCitaForm.patchValue({
       user: user.uid,
@@ -61,31 +65,33 @@ export class NewCitaComponent implements OnInit {
       id: 'cita-id'
     });
   }
-
+  // Al iniciar se inician los valores fijos del formulario
   ngOnInit() {
-    this.currentImage = this.authSvc.getUserImage();
     this.authSvc.userData$.subscribe(user => {
       this.initValuesForm(user);
     });
   }
-
+  // Función que se activa al abrir el diálogo de aceptación
   openDialog(data): void {
     const dialogRef = this.dialog.open(DialogNewCitaComponent, {
       width: '400px',
       data: {data}
     });
-
+    // Función que se activa tras cerrar el diálogo
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog closed');
+      // Comprueba si la cita ha sido aceptada
       this.cita = this.checkCita(data);
       if (result) {
         this.addNewCita(this.cita);
       }
+      // Vuelve a la página de citas
       this.router.navigate(['/citas']);
     });
   }
-
+  // Crea el objeto CitaI para añadir a la db
   checkCita(data): CitaI {
+    // Ajusta el formato de fecha para firebase
     data.date = data.date.replace('T', ' ');
     const citaObj = {
       centro: data.centro,
@@ -100,7 +106,7 @@ export class NewCitaComponent implements OnInit {
   }
 
 }
-
+// Componente del diálogo de checkeo
 @Component({
   selector: 'app-dialog-new-cita',
   templateUrl: 'dialog-new-cita.html',

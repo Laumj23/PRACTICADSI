@@ -1,3 +1,5 @@
+<!-- NEW CITA DIALOG -->
+<!-- Contiene una tarjeta con los detalles introducidos en el formulario -->
 <h1 mat-dialog-title>¿Confirmar cita?</h1>
 <div mat-dialog-content>
     <mat-card class="cita-card">
@@ -12,6 +14,7 @@
     </mat-card>
 </div>
 <div mat-dialog-actions>
+    <!-- Botones para aceptar o rechazar la cita elegida -->
     <button mat-button (click)="onNoClick()">No Thanks</button>
     <button mat-button form="newCitaForm" type="submit" [mat-dialog-close]=true cdkFocusInitial>Ok</button>
 </div>

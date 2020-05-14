@@ -1,14 +1,16 @@
+<!-- NEW CITA -->
 <div class="container">
-
+    <!-- Despliega la cabecera de la página -->
     <div class="profile">
         <h1>Nueva cita</h1>
         <img [src]="currentImage" alt=""/>
     </div>
-
+    <!-- Despliega un formulario para la creación de una nueva cita -->
     <form [formGroup]="newCitaForm" (ngSubmit)="addNewCita(newCitaForm.value)">
         <p> Consulta:
         <mat-form-field appearance="fill">
             <mat-label>Especifica consulta:</mat-label>
+            <!-- Selector para la selección de consulta -->
             <mat-select form="newCitaForm" formControlName="consulta">
                 <mat-option *ngFor="let consulta of consultas" [value]="consulta.value">
                   {{consulta.viewValue}}
@@ -20,9 +22,6 @@
         <mat-form-field appearance="fill">
             <mat-label>Elige una fecha</mat-label>
             <input matInput type="datetime-local" formControlName="date">
-            <!-- <input matInput [matDatepicker]="picker" formControlName="date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker> -->
         </mat-form-field>
         </p>
         <p> Centro:
@@ -38,6 +37,7 @@
             </mat-form-field>
         </p>
     </form>
+    <!-- Botón que abre el diálogo para enviar el formulario -->
     <div class="container-button">
         <button mat-raised-button (click)="openDialog(newCitaForm.value)"  
                 [disabled]="!newCitaForm.valid" color="primary">Guardar</button>
