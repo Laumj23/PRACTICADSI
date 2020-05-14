@@ -1,43 +1,46 @@
-<div class="profile">
-<h2>Ajustes</h2>
-<img [src]="currentImage" alt=""/>
-<h2>Tu resumen diario</h2>
+<div class="container">
+
+  <div class="profile">
+    <h1>Ajustes</h1>
+    <img [src]="currentImage" alt=""/>
+  </div>
+
+  <h3>Configuración del perfil</h3>
+  <mat-card class="card-ajustes">
+    <mat-list>
+    <mat-list-item><span class="material-icons">camera_alt</span><a routerLink="/admin/profile">Foto del perfil</a></mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">assignment_ind</span>Datos personales</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">share</span>Enlazar redes sociales</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">watch</span>Dispositivos externo</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">local_hospital</span>Hospitales guardados</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">assignment</span>Registro de consultas</mat-list-item>
+    </mat-list>
+  </mat-card>
+  <h3>Notificaciones</h3>
+  <mat-card class="card-notificaciones">
+    <mat-list>
+    <mat-list-item><span class="material-icons">notifications_none</span>Ajuste de notificaciones</mat-list-item>
+    </mat-list>
+  </mat-card>
+  <h3>Ayuda</h3>
+  <mat-card class="card-ayuda">
+    <mat-list>
+    <mat-list-item><span class="material-icons">contact_support</span>Soporte técnico</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">description</span>Términos y condiciones</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">save</span>Uso de datos</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">queue</span>Recetas médicas</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">error_outline</span>Informar de un problema</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><span class="material-icons">call</span>Contactos de emergencia</mat-list-item>
+    </mat-list>
+  </mat-card>
 </div>
-<h3>Configuración del perfil</h3>
-<mat-card class="card-ajustes">
-  <mat-list>
-  <mat-list-item><span class="material-icons">camera_alt</span><a routerLink="/admin/profile">Foto del perfil</a></mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">assignment_ind</span>Datos personales</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">share</span>Enlazar redes sociales</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">watch</span>Dispositivos externo</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">local_hospital</span>Hospitales guardados</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">assignment</span>Registro de consultas</mat-list-item>
-  </mat-list>
-</mat-card>
-<h3>Notificaciones</h3>
-<mat-card class="card-notificaciones">
-  <mat-list>
-  <mat-list-item><span class="material-icons">notifications_none</span>Ajuste de notificaciones</mat-list-item>
-  </mat-list>
-</mat-card>
-<h3>Ayuda</h3>
-<mat-card class="card-ayuda">
-  <mat-list>
-  <mat-list-item><span class="material-icons">contact_support</span>Soporte técnico</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">description</span>Términos y condiciones</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">save</span>Uso de datos</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">queue</span>Recetas médicas</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">error_outline</span>Informar de un problema</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item><span class="material-icons">call</span>Contactos de emergencia</mat-list-item>
-  </mat-list>
-</mat-card>

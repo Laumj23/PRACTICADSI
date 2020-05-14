@@ -1,21 +1,39 @@
-h2{
-  color:white;
-  margin: 5px;
+.profile{
+  h1, h2{
+    color: white;
+    margin-top: 5px;
+    margin: 10px;
+    display: inline-block;
+    width: 65%;
+  }
+  img{
+    margin: 10px;
+    // align: right;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    &:hover{
+      border: 2px solid #7b1fa2;
+      cursor:pointer;
+    }
+    float: right;
+  }
 }
 .container{
   margin: 20px;
   display: grid;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   justify-content: center;
 }
-.container >*:not(:last-child){
-  margin-bottom: 32px;
-}
 .container >*{
   box-sizing: border-box;
+}
+.test{
+  display: flex;
 }
 .post-card{
   background: #ffffff;
@@ -26,6 +44,7 @@ h2{
   font-size: 150%;
   flex: 0 1 calc(24% - 32px );
   margin: 10px;
+  flex: 1;
   }
   p.content{
     white-space: nowrap;
