@@ -1,4 +1,6 @@
+<!-- Página base para el contenido de las páginas -->
 <div class="otro">
+  <!-- Comprueba el tamaño de la pantalla para desplegar el layout correspondiente -->
   <div class="display" *ngIf="screenWidth<959; else vertical">
     <div class="menu">
       <app-toolbar></app-toolbar>
@@ -10,6 +12,7 @@
   <div class="footer">
   </div>
 </div>
+<!-- En caso de no desplegar toolbar, despliega un menú vertical con las mismas características -->
 <ng-template #vertical>
 <div class="wrapper">
   <div class="verticalMenu">
