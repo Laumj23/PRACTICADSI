@@ -1,12 +1,15 @@
+<!-- AVISOS -->
+<!-- Despliega los últimos avisos sobre resultados del usuario -->
 <div class="container" *ngIf="avisos$ | async as avisos; else loading">
-    
+    <!-- Despliega la cabecera de la página -->
     <div class="profile">
         <h1>Tus avisos</h1>
         <img [src]="currentImage" alt=""/>
         <h2>Nuevos resultados:</h2>
     </div>
-
+    <!-- Comprueba si hay avisos -->
     <ng-container *ngIf="avisos.length>0; else empty">
+        <!-- Despliega el último aviso en forma de tarjeta  -->
         <mat-card class="aviso-card">
             <mat-card-header>
                 <mat-icon mat-card-avatar>how_to_reg</mat-icon>
@@ -21,7 +24,7 @@
             </mat-card-actions>
         </mat-card>
     </ng-container>
-
+    <!-- Los 4 siguientes avisos en firebase los despliega en forma de lista -->
     <h2>Pruebas anteriores:</h2>
     <mat-selection-list class="aviso-list">
         <a mat-list-item *ngIf="avisos[1]!=undefined">
@@ -54,12 +57,13 @@
         </a>
     </mat-selection-list>
 </div>
-
+<!-- Spinner para buffering -->
 <ng-template #loading>
     <div class="container-spinner">
     <mat-spinner></mat-spinner>
     </div>
 </ng-template>
+<!-- En caso de que no haya avisos, se despliega un mensaje avisando -->
 <ng-template #empty>
   <mat-card class="empty">
       <mat-card-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { CitaService } from 'src/app/components/cita/cita.service';
+import { CitaService } from 'src/app/shared/services/cita.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CitaI } from 'src/app/shared/models/cita.interface';

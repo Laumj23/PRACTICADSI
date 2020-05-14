@@ -93,29 +93,6 @@ export class AuthService {
     .catch(err => console.log('Error', err));
   }
 
-  public getUserID(): string {
-    this.afAuth.onAuthStateChanged((user) => {
-      if (user) {
-        this.uid = user.uid;
-      } else {
-        // User not logged in or has just logged out.
-      }
-    });
-    return this.uid;
-  }
-
-  public getUserName(): string {
-    this.afAuth.onAuthStateChanged((user) => {
-      if (user) {
-        this.userName = user.displayName;
-
-      } else {
-        console.log('funciona?' + this.userName);
-      }
-    });
-    return this.userName;
-  }
-
   public getUserImage(): string {
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {

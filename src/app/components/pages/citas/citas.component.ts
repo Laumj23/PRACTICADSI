@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CitaService } from '../../cita/cita.service';
+import { CitaService } from '../../../shared/services/cita.service';
 import { AuthService } from '../../../shared/services/auth.service';
 import { CitaI } from '../../../shared/models/cita.interface';
 import { Observable } from 'rxjs';
