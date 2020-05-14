@@ -34,7 +34,7 @@ export class AuthService {
       })
     );
   }
-
+//funcion para loggear a un usuario usando el email y password
   loginByEmail(user: UserI) {
     const { email, password } = user;
     return this.afAuth.signInWithEmailAndPassword(email, password)
@@ -42,12 +42,12 @@ export class AuthService {
         this.updateUserData(credential.user);
       });
   }
-
+//permita salir de la cuenta
   async logout() {
     await this.afAuth.signOut();
     this.router.navigate(['/']);
   }
-
+//actualiza los datos del usuario
   private updateUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const data: UserI = {
@@ -59,7 +59,7 @@ export class AuthService {
     };
     return userRef.set(data, { merge: true });
   }
-
+//preguarda un usuario y lo prepara para guardarlo en caso de que tenga imagen de perfil o no
   preSaveUserProfile(user: UserI, image?: FileI): void {
     if (image) {
       this.saveUserProfile(user, image);
@@ -68,7 +68,7 @@ export class AuthService {
     }
 
   }
-
+//sube la imagen de usuario a firebase
   private uploadImage(user: UserI, image: FileI): void {
     this.filePath = `images/${image.name}`;
     const fileRef = this.storage.ref(this.filePath);
@@ -83,7 +83,7 @@ export class AuthService {
       })
     ).subscribe();
   }
-
+//guarda la configuracion de usuario: nombre y foto de perfil
  async saveUserProfile(user: UserI, image?: FileI) {
     (await this.afAuth.currentUser).updateProfile({
       displayName: user.displayName,
@@ -92,7 +92,7 @@ export class AuthService {
     then( () => console.log('User update'))
     .catch(err => console.log('Error', err));
   }
-
+//obtener la imagen de un perfil
   public getUserImage(): string {
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {
@@ -104,17 +104,17 @@ export class AuthService {
     });
     return this.photoURL;
   }
-
+//comprueba que el usuario corresponde con un doctor
   isDoctor(user: UserI): boolean {
     const allowed = ['doctor'];
     return this.checkAuthorization(user, allowed);
   }
-
+//registra a un usuario con el email y la contraseña
   async register(user: UserI) {
     const { email, password } = user;
     var result = await this.afAuth.createUserWithEmailAndPassword(email, password);
 }
-
+//confirma los roles
   private checkAuthorization(user: UserI, allowedRoles: string[]): boolean {
     if (!user) {
       return false;
