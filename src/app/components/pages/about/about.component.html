@@ -9,6 +9,8 @@
   <h3>Configuración del perfil</h3>
   <mat-card class="card-ajustes">
     <mat-list>
+    <mat-list-item><span class="material-icons">exit_to_app</span><a (click)="onLogout()">Cerrar sesión</a></mat-list-item>
+    <mat-divider></mat-divider>
     <mat-list-item><span class="material-icons">camera_alt</span><a routerLink="/admin/profile">Foto del perfil</a></mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item><span class="material-icons">assignment_ind</span>Datos personales</mat-list-item>

@@ -9,13 +9,13 @@ import { AngularFireStorage } from '@angular/fire/storage';
   providedIn: 'root'
 })
 export class CitaService {
+
   private citaCollection: AngularFirestoreCollection<CitaI>;
 
-  constructor(private afs: AngularFirestore,
-              private storage: AngularFireStorage) {
+  constructor(private afs: AngularFirestore) {
     this.citaCollection = afs.collection<CitaI>('citas');
   }
-
+  // Obtener todas las citas
   public getAllCitas(): Observable<CitaI[]> {
     return this.citaCollection
     .snapshotChanges()
@@ -33,7 +33,7 @@ export class CitaService {
   public getOneCita(id: CitaI): Observable<CitaI> {
     return this.afs.doc<CitaI>(`citas/${id}`).valueChanges();
   }
-
+  // Obtiene todas las citas correspondientes a un usuario
   public getCitasFiltered(uid: string): Observable<CitaI[]> {
     console.log('filtered ' + uid);
     return this.afs.collection<CitaI>('citas', ref => ref.where('user', '==', uid))
@@ -48,7 +48,7 @@ export class CitaService {
     )
     );
   }
-
+  // Obtiene todas las citas correspondientes a un doctor
   public getCitasDoctor(docName: string): Observable<CitaI[]> {
     console.log('cositas ' + docName);
     return this.afs.collection<CitaI>('citas', ref => ref.where('doctor', '==', docName))
@@ -63,7 +63,7 @@ export class CitaService {
     )
     );
   }
-
+  // Crea una nueva cita y la añade a la base de datos
   public newCita(cita: CitaI) {
     const citaObj = {
       centro: cita.centro,

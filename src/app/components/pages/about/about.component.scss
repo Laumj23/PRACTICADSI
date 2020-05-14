@@ -48,7 +48,15 @@ mat-card{
   mat-list-item{
     font-size: 100%;
   }
+  a:hover{
+    cursor: pointer;
+    font-weight: bold;
   }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+}
 .material-icons{
   margin: 3px;
 }

@@ -10,9 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class AvisoService {
 
-  constructor(private afs: AngularFirestore, private storage: AngularFireStorage) { }
+  constructor(private afs: AngularFirestore) { }
 
+  // Obtiene los avisos corrspondientes a un usuario
   public getAvisosByUser(uid: string) {
+    // Además los ordena por fecha de manera descendente
     return this.afs.collection<AvisoI>('avisos', ref => ref.where('user', '==', uid).orderBy('date', 'desc'))
       .snapshotChanges()
       .pipe(
@@ -24,9 +26,5 @@ export class AvisoService {
       })
     )
     );
-  }
-
-  public getOneAviso(id: AvisoI): Observable<AvisoI> {
-    return this.afs.doc<AvisoI>(`avisos/${id}`).valueChanges();
   }
 }

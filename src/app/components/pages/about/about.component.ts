@@ -13,8 +13,12 @@ export class AboutComponent implements OnInit {
   constructor(public authSvc: AuthService) { }
 
   ngOnInit() {
-    //coge la imagen del usuario
+    // Coge la imagen del usuario
     this.currentImage = this.authSvc.getUserImage();
+  }
+
+  onLogout(): void {
+    this.authSvc.logout();
   }
 
 }
