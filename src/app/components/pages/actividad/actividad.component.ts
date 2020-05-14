@@ -11,17 +11,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./actividad.component.scss']
 })
 export class ActividadComponent implements OnInit {
+
   public posts$: Observable<PostI[]>;
-  public userName: string;
   public currentImage: string;
 
   constructor(private postSvc: PostService, public authSvc: AuthService) { }
 
   ngOnInit() {
-    this.userName = this.authSvc.getUserName();
-    console.log('user ' + this.userName);
-    this.posts$ = this.postSvc.getPostsFiltered(this.userName);
-    this.currentImage = this.authSvc.getUserImage();
+    // La página identifica al usuario conectado
+    this.authSvc.userData$.subscribe(user => {
+      this.posts$ = this.postSvc.getPostsFiltered(user.displayName);
+      this.currentImage = this.authSvc.getUserImage();
+    });
   }
 
 }

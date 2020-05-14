@@ -7,13 +7,13 @@ import { AuthService } from '../../../shared/services/auth.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  
   public currentImage: string;
-
 
   constructor(public authSvc: AuthService) { }
 
   ngOnInit() {
-    this.currentImage=this.authSvc.getUserImage();
+    this.currentImage = this.authSvc.getUserImage();
   }
 
 }
