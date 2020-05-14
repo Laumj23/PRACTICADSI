@@ -16,9 +16,11 @@ export class EditPostComponent implements OnInit {
   @Input() post: PostI;
   public postControl: PostI;
 
-
+  // este componente nos sirve para introducir nuevos datos de actividades a cada usuario
   constructor(private postSvc: PostService, private authSvc: AuthService) { }
 
+  //creamos el formulario con el que solo se van a poder introducir los datos
+  //ya que los otros datos se cogen del usuario y del post correspondientes
   public editPostForm = new FormGroup({
     id:new FormControl('', Validators.required),
     titlePost:new FormControl({value: '', disabled : true}, Validators.required),
@@ -29,6 +31,7 @@ export class EditPostComponent implements OnInit {
   });
 
   ngOnInit() {
+    //se inicializan los datos pero sin un usuario asignado y los datos a 0 
     this.initValuesForm();
     this.authSvc.userData$.subscribe(user =>{
     this.initValuesUser(user);

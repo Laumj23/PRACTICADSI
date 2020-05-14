@@ -1,4 +1,4 @@
-
+<!--despliega la tabla donde contiene los distintos campos de actividades-->
 <div class="tabla">
 <table mat-table [dataSource]="posts$" class="mat-elevation-z8" matSort>
 <div class="container" *ngIf="posts$ | async as posts; else loading">
@@ -10,6 +10,7 @@
  <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef > </th>
     <td mat-cell *matCellDef="let element">
+      <!--Boton para editar-->
       <button mat-stroked-button color="accent" (click)="onEditPost(element)">
         <mat-icon>add</mat-icon>
       </button>

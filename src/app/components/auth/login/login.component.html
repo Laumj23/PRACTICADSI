@@ -1,6 +1,9 @@
+<!--LOGIN-->
+<!--tarjeta que incluye el formulario de login-->
 <mat-card class="login-card">
   <mat-card-title>Bienvenido</mat-card-title>
   <mat-card-content>
+    <!--formulario-->
     <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
       <p>
         <mat-form-field>
@@ -12,6 +15,7 @@
           <input type="password" matInput placeholder="Contraseña" formControlName="password"/>
         </mat-form-field>
       </p>
+      <!--cada vez que se pulse el boton de submit se llamará a la funcion onlogin del componente-->
       <button type="submit" mat-raised-button >Login</button>
       <button type="button" routerLink="/register" mat-raised-button>¿No tienes cuenta? Registrate</button>
     </form>

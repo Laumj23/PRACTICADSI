@@ -17,6 +17,7 @@ export class NewPostComponent implements OnInit {
   constructor(private postSvc: PostService, private authSvc: AuthService) { }
 
   ngOnInit() {
+    //cogemos el usuario actualmente loggeado
     this.authSvc.userData$.subscribe(user => {
     this.initValuesForm(user);
     });
@@ -42,6 +43,6 @@ export class NewPostComponent implements OnInit {
     console.log('New post', data);
     this.postSvc.savePost(data);
   }
-//conseguir imagen
+
 
 }

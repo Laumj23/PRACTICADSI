@@ -5,7 +5,7 @@ import { PostI } from '../../models/post.interface';
 import { Observable } from 'rxjs';
 import { MatDialog } from  '@angular/material/dialog';
 import { ModalComponent } from  './../modal/modal.component';
-import { DeleteDialogComponent } from  './../delete-dialog/delete-dialog.component';
+
 
 @Component({
   selector: 'app-table',
@@ -25,29 +25,13 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(){
 }
-
-
-  onDeletePost(post:PostI){
-    this.openDeleteDialog(post);
-    console.log('Delete post', post);
-  }
+//llama a la funcion para editar el post y añadir los valores nuevos a las actividades
   onEditPost(post:PostI){
     console.log('Edit post', post);
     this.openNewPostDialog(post);
   }
-  onNewPost(post:PostI){
-    this.openNewPostDialog();
-    console.log('New post', post);
-  }
-  openDeleteDialog(post:PostI): void{
-    const dialogRef = this.dialog.open(DeleteDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result ${ result }`);
-      if(result == true){
-        this.postSvc.deletePostbyID(post);
-      }
-    })
-  }
+
+//abre el dialogo del pop-up
   openNewPostDialog(post?:PostI):void{
     const config = {
       data:{

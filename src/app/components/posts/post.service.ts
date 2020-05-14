@@ -9,6 +9,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 @Injectable({
   providedIn: 'root'
 })
+//CON ESTE SERVICIO PODREMOS GUARDAR LOS DATOS DE LAS ACTIVIDADES
 export class PostService {
   private postCollection: AngularFirestoreCollection<PostI>;
   private filePath: any;
@@ -18,7 +19,7 @@ export class PostService {
   constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {
     this.postCollection = afs.collection<PostI>('posts');
   }
-
+  //cogemos todos los posts creados en el sistema
   public getAllPosts(): Observable<PostI[]> {
     return this.postCollection
     .snapshotChanges()
@@ -74,7 +75,7 @@ public getPostsFiltered(userName: string): Observable<PostI[]> {
   )
   );
 }
-
+//posts sin usuario para poder tener un template para cada actividad
 public getPostsModel(): Observable<PostI[]> {
   console.log('filtered ');
   return this.afs.collection<PostI>('posts', ref => ref.where('user', '==', 'none'))

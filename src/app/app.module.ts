@@ -20,7 +20,6 @@ import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
-import { DeleteDialogComponent } from './shared/components/delete-dialog/delete-dialog.component';
 import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 
@@ -33,7 +32,6 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     ToolbarComponent,
     ContainerAppComponent,
     ModalComponent,
-    DeleteDialogComponent,
     EditPostComponent,
     NewCitaComponent,
     DialogNewCitaComponent
@@ -51,7 +49,7 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
     ReactiveFormsModule,
     EditPostModule,
   ],
-  entryComponents: [ModalComponent, DeleteDialogComponent, DialogNewCitaComponent],
+  entryComponents: [ModalComponent,  DialogNewCitaComponent],
   providers: [{provide: BUCKET, useValue: 'gs://practicafinal-2e9b3.appspot.com'}],
   bootstrap: [AppComponent],
    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

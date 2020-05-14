@@ -10,6 +10,7 @@ import { AuthService } from '../../../shared/services/auth.service';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
+//con este componente se puede acceder a uno de los post de actividad para obtener más información
 export class PostComponent implements OnInit {
     public post$: Observable<PostI>;
 
@@ -18,7 +19,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     const idPost = this.route.snapshot.params.id;
 
-
+    //
     this.post$ = this.postSvc.getOnePost(idPost);
   }
 

@@ -1,11 +1,15 @@
+<!--ACTIVIDAD-->
+<!--mostrará tarjetas con los datos de actividad si hay introducidos datos-->
 <div class="container" *ngIf="posts$ | async as posts; else loading">
- 
+<!--Cabecera para cada ususatio donde se mostrará la imagen del usuario-->
   <div class="profile">
     <h1>Actividad</h1>
     <img [src]="currentImage" alt=""/>
     <h2>Tu actividad hoy:</h2>
   </div>
+<!--comprueba que hay cards con datos para mostrar con el correspondiente usuario-->
   <div class="test">
+    <ng-container *ngIf="posts.length>0; else empty">
     <mat-card class="post-card" *ngFor="let post of posts">
       <mat-card-header>
        <mat-card-title>
@@ -17,13 +21,23 @@
         {{post.contentPost}}
       </mat-card-content>
     </mat-card>
+  </ng-container>
   </div>
 </div>
+<!--se muestra la tabla donde se despliegan los distintos campos para introducir datos-->
 <div class="tabla">
   <app-table></app-table>
 </div>
+<!-- Spinner para buffering -->
 <ng-template #loading>
   <div class="container-spinner">
   <mat-spinner></mat-spinner>
   </div>
+<!-- En caso de que no haya datos introducidos, se despliega un mensaje avisando -->
+<ng-template #empty>
+    <mat-card class="empty">
+        <mat-card-content>
+            <p>No hay datos introducidos</p>
+        </mat-card-content>
+    </mat-card>
 </ng-template>

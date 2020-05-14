@@ -1,3 +1,6 @@
+<!--Al igual que en container-app en este componente tenemos que implementar de nuevo el menu-->
+<!--De manera que en este caso cogemos el tamaño del ancho de la pantalla con la funcion definida en el componente-->
+<!--En el caso de dispositivos pequeños disponemos del mismo display de toolbar-->
 <div class="display" *ngIf="screenWidth<959; else vertical">
 <div class="menu">
 <mat-toolbar>
@@ -27,6 +30,8 @@
   <router-outlet></router-outlet>
 </div>
 </div>
+<!--En caso de dispostivos más grandes disponemos del menu vertical-->
+<!--Y el contenido se muestra a la derecha del menu-->
 <ng-template #vertical>
 <div class="verticalMenu">
   <h1>Helse</h1>

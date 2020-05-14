@@ -1,8 +1,11 @@
+<!--CAMBIO DE FOTO Y NOMBRE DE PERFIL-->
+<!--Contiene el formulario para cambiar la configuración del usuario-->
 <form (ngSubmit)="onSaveUser(profileForm.value)" [formGroup]="profileForm">
   <mat-card class="profile-card">
     <mat-card-header>
       <div class="label bottom">
         <p>Change</p>
+        <!--Coge el archivo del usuario-->
         <img [src]="currentImage"(click)="inputImageProfile.click()"/>
         <input hidden type="file" #inputImageProfile formControlName="photoURL" (change)="handleImage(($event?.target?.files)[0])"/>
       </div>
@@ -17,7 +20,7 @@
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" formControlName="email">
       </mat-form-field>
-
+      <!--una vez se pulse el boton de submit se guardaran los valores cambiados-->
       <div class="mat-dialog-actions">
         <input type="submit" class="mat-flat-button" value="Save"/>
       </div>

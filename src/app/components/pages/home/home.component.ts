@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(private postSvc: PostService, public authSvc: AuthService) { }
 
   ngOnInit() {
+    //la pagina coge los datos del nombre de usuario, los posts asociados y la imagen de perfil
     this.authSvc.userData$.subscribe(user => {
       this.userName = user.displayName;
       this.posts$ = this.postSvc.getPostsFiltered(user.displayName);
