@@ -1,20 +1,19 @@
-<h2>Bienvenido</h2>
-<mat-card>
-  <mat-card-title>Login</mat-card-title>
+<mat-card class="login-card">
+  <mat-card-title>Bienvenido</mat-card-title>
   <mat-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Username" formControlName="email"/>
+          <input type="text" matInput placeholder="Usuario" formControlName="email"/>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="password" formControlName="password"/>
+          <input type="password" matInput placeholder="Contraseña" formControlName="password"/>
         </mat-form-field>
       </p>
       <button type="submit" mat-raised-button >Login</button>
+      <button type="button" routerLink="/register" mat-raised-button>¿No tienes cuenta? Registrate</button>
     </form>
   </mat-card-content>
 </mat-card>
-<a routerLink="/register">¿No tienes cuenta? Registrate</a>

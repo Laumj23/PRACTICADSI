@@ -1,26 +1,43 @@
-h2{
-  padding: inherit;
-  text-align: center;
-  display: block;
-  color: white;
-}
 :host{
-  display: block;
+  display: flex;
   justify-content: center;
   margin: 100px 0;
-
+}
+.mat-card{
+  background: none;
+  margin: 10px;
+  flex: 1;
+}
+.mat-card:not([class*=mat-elevation-z]){
+  box-shadow: none;
 }
 .mat-form-field{
   width: 100%;
-  min-width: 300px;
+  max-width: 300px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  align-self: center;
 }
-mat-card-title,
-mat-card-content{
+mat-card-title{
   display: flex;
   justify-content: center;
-
+  font-weight: bold;
+  font-size: xx-large;
+  color: white;
+}
+mat-card-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 button{
   width: 100%;
+  max-width: 300px;
+  margin: 5px;
   background-color:  #D90066;
+  color: white;
+  border-radius: 20px;
 }
+
